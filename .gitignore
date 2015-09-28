@@ -1,0 +1,11 @@
+**/.DS_Store
+/coverage/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+/log
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
