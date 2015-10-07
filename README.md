@@ -32,10 +32,10 @@ Weekly Homework
 **Submit homework by pushing to your bewd11-homework repo, then submit a pull request.**    
 Unless otherwise specified, homework is given each Tuesday, and is always due the following Tuesday. Feedback on each ***on time*** assignment will be provided by Thursday. Late assignments are unlikely to receive feedback.
 
-| HW # | Assignment | Class Topic | Due Date | Feedback |
-| :--: | :--------- | :---------- | :------- | :------- |
-| 1    |  - Your homework is to catch up on Ruby syntax so you're ready for next class. <br>- Make sure you have completed the following tutorials: <br>- [Codecademy Ruby Tutorial](https://www.codecademy.com/tracks/ruby) - The Introduction to Ruby section <br>- [Try Ruby](http://tryruby.org) <br>- Also make sure to review Git and the workflow for collaborating.          | [Command Line and Git](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_1) | Thursday, October 8th | N/A |
-| 2    |            | [Introduction to Ruby](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_2)           | -        | -        |
+| HW # | Assignment | Homework Outline | Due Date | Feedback |
+| :--: | :--------- | :--------------- | :------- | :------- |
+| 1    |  Review Git and complete both Ruby tutorials ---> | [Command Line and Git](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_1) | Thursday, October 8th | N/A |
+| 2    | `my_projects/bewd11-homework/YourName-username/hw_1/calculator.rb` | [Introduction to Ruby](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_2)           | -        | -        |
 | 3    |            | -           | -        | -        |
 | 4    |            | -           | -        | -        |
 | 5    |            | -           | -        | -        |
