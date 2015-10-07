@@ -34,7 +34,7 @@ Unless otherwise specified, homework is given each Tuesday, and is always due th
 
 | HW # | Assignment | Class Topic | Due Date | Feedback |
 | :--: | :--------- | :---------- | :------- | :------- |
-| 1    |  - Your homework is to catch up on Ruby syntax so you're ready for next class. <br>- Make sure you have completed the following tutorials: <br>- [Codecademy Ruby Tutorial](https://www.codecademy.com/tracks/ruby) - The Introduction to Ruby section <br>- [Try Ruby](http://tryruby.org) <br>- Also make sure to review Git and the workflow for collaborating.          | Command Line and Git | Thursday, October 8th | N/A |
+| 1    |  - Your homework is to catch up on Ruby syntax so you're ready for next class. <br>- Make sure you have completed the following tutorials: <br>- [Codecademy Ruby Tutorial](https://www.codecademy.com/tracks/ruby) - The Introduction to Ruby section <br>- [Try Ruby](http://tryruby.org) <br>- Also make sure to review Git and the workflow for collaborating.          | [Command Line and Git](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_1) | Thursday, October 8th | N/A |
 | 2    |            | -           | -        | -        |
 | 3    |            | -           | -        | -        |
 | 4    |            | -           | -        | -        |
