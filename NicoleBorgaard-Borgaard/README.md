@@ -6,7 +6,7 @@ If you've found this readme, please send Nicole cute cat pictures. Thanks!
  - [RailsCasts](#railscasts)
  - [APIs](#nifty-apis)
  - [Gems](#handy-gems)
- - [Developer Mailing list Subscriptions](subscriptions)
+ - [Developer Mailing list Subscriptions](#subscriptions)
  - [Terminal](#terminal)
  - [Git](#git)
  - [Readings/Blog posts](#readings)
