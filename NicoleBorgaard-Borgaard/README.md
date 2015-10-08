@@ -6,7 +6,7 @@ If you've found this readme, please send Nicole cute cat pictures. Thanks!
  - [RailsCasts](#railscasts)
  - [APIs](#nifty-apis)
  - [Gems](#handy-gems)
- - [Mailing lists](dev-mailing-list-subscriptions)
+ - [Developer Mailing list Subscriptions](subscriptions)
  - [Terminal](#terminal)
  - [Git](#git)
  - [Readings/Blog posts](#readings)
@@ -51,7 +51,7 @@ Handy Gems
 
 
 
-Dev Mailing list Subscriptions
+Subscriptions
 ----
 | Subscription | Description | Why is it useful? |
 | :----------- | :---------- | :---------------- |
