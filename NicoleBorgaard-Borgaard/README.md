@@ -1,5 +1,6 @@
 If you've found this readme, please send Nicole cute cat pictures. Thanks!
 
+Please note: the resources listed here are _not part of General Assembly's curriculum_ and should not be considered so. They are entirely independently aggregated materials Nicole finds to be useful to _anyone_ learning web development.
 
 
 ## Table of Contents
