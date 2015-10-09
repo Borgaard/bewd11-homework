@@ -1,5 +1,5 @@
 class Calculator
-   def initializer
+   def initialize
        puts "First number:"
        @num1 = gets.chomp.to_i
        puts "Second number:"
@@ -10,13 +10,14 @@ class Calculator
     
     def run_calculator
         if @operation == "multiply"
-            puts @num1 * num2
-        elseif @operation == "divide"
-             puts @num1 / @num2
-        elseif @operation == "add
-             puts @num1 + @num2
+            puts @num1 * @num2
+        elsif @operation == "divide"
+            puts @num1 / @num2
+        elsif @operation == "add"
+            puts @num1 + @num2
         else
             puts @num1 - @num2
+        end    
     end
     
     def add
