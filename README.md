@@ -10,7 +10,7 @@ Follow these directions closely to switch over to this repository.
 
 1. Fork this repository.
 2. Clone your fork to your ```~/my_projects``` folder.
-3. Create a directory in the ```bewd11-homework``` folder using your real name and github account name, like ```bewd11-homework/NicoleBorgaard-Borgaard```. That will make it easier for us to remember who everyone's github name is. :)
+3. Create a directory in the ```bewd11-homework``` folder using your real name and github account name, like ```bewd11-homework/NicoleBorgaard-Borgaard```. That will make it easier for us to remember what everyone's github name is. :)
 4. For each homework make sure to put your files in a new `hw_x` directory in your named directory. Example for homework #3: `bewd11-homework/NicoleBorgaard-Borgaard/hw_3/`
 
 Example of what your folders should look something like:

@@ -34,21 +34,30 @@ Nifty APIs
 | [Petfinder](https://www.petfinder.com/developers/api-docs) | Matches you with an adoptable dog in your area. | [Found My Hound](https://found-my-hound.herokuapp.com/) |
 | [Indeed](http://www.indeed.com/jsp/apiinfo.jsp) | Provides you with an interface to organize your job search. | [JobFly](https://guarded-retreat-9724.herokuapp.com/) |
 | [Google Maps](https://developers.google.com/maps/?hl=en) | Fun way to document your travel experiences and share with friends. | [Best Day](http://best-day.herokuapp.com/) |
-| - | - | - |
+| [Instagram](https://instagram.com/developer/) | Snazzy pictures. | - |
+| [OMDb](http://www.omdbapi.com/) | Movies (simple API, recommended). | - |
+| [Twilio](https://www.twilio.com/api) | Enables your application to include text messaging functionality. | - |
+| [Spotify](https://developer.spotify.com/web-api/) | Spice up your app with some tunes. | - |
+| [SF OpenData](https://data.sfgov.org/) | **Tons** of data provided by SF City and County. Data like filming locations, energy use, garbage truck routes, topological information, etc. Make it meaningful to your application. | - |
+| [Vimeo](https://developer.vimeo.com/) | Video! | - |
+| [SF Crimespotting](http://sanfrancisco.crimespotting.org/api) | Crime reports in SF. | - |
+| [US Earthquakes](http://earthquake.usgs.gov/fdsnws/event/1/) | Include Earthquake data in your application. | - |
+| [Bay Area Bike Share](http://www.bayareabikeshare.com/open-data) | What's cooler than bicycling data?! Bay Area Bike Share program allows short period bike rentals throughout the bay area. How can you make this data meaningful to your users? | - |
+| [BART](http://www.bart.gov/schedules/developers/api) |  | - |
 | - | - | - |
 
 
 Handy Gems
 ----
-| Gem | Description | Example |
-| :-- | :---------- | :------ |
-| [Google Maps](https://github.com/apneadiving/Google-Maps-for-Rails) for Rails | Map | - |
-| [public_activity](https://github.com/chaps-io/public_activity) | - | - |
-| - | - | - |
-| - | - | - |
-| - | - | - |
-| - | - | - |
-| - | - | - |
+| Gem | Description |
+| :-- | :---------- |
+| [Google Maps](https://github.com/apneadiving/Google-Maps-for-Rails) for Rails | Map |
+| [public_activity](https://github.com/chaps-io/public_activity) | - |
+| [better_errors](https://github.com/charliesome/better_errors) in combo with [binding_of_caller](https://github.com/banister/binding_of_caller) | Replaces the standard Rails error page with far more helpful messages and allows you to inspect the source code live to see what went wrong. |
+| [simple_form](https://github.com/plataformatec/simple_form) | Allows you to quickly and easily design a great user interface for your forms. |
+| [did_you_mean](https://github.com/yuki24/did_you_mean) | Automagically puts method corrections into the error message. |
+| - | - |
+| - | - |
 
 
 
