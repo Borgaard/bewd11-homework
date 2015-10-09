@@ -1,12 +1,13 @@
 If you've found this readme, please send Nicole cute cat pictures. Thanks!
 
+Please note: the resources listed here are _not part of General Assembly's curriculum_ and should not be considered so. They are entirely independently aggregated materials Nicole finds to be useful to _anyone_ learning web development.
 
 
 ## Table of Contents
  - [RailsCasts](#railscasts)
  - [APIs](#nifty-apis)
  - [Gems](#handy-gems)
- - [Mailing lists](dev-mailing-list-subscriptions)
+ - [Developer Mailing list Subscriptions](#subscriptions)
  - [Terminal](#terminal)
  - [Git](#git)
  - [Readings/Blog posts](#readings)
@@ -51,7 +52,7 @@ Handy Gems
 
 
 
-Dev Mailing list Subscriptions
+Subscriptions
 ----
 | Subscription | Description | Why is it useful? |
 | :----------- | :---------- | :---------------- |
