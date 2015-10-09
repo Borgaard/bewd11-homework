@@ -16,7 +16,24 @@ Follow these directions closely to switch over to this repository.
 Example of what your folders should look something like:
 
 ```
-~/projects/BEWD11-homework/NicoleBorgaard-Borgaard/hw_1/whatever_it_is.rb
+|-- my_projects
+    |-- bewd11-Arun
+        |-- README.md
+        |-- week1
+    |-- bewd11-homework
+        |-- README.md
+        |-- YourName-github_username
+            |-- hw_1
+                |-- calculator.rb
+            |-- hw_2
+        |-- NicoleBorgaard-Borgaard
+            |-- hw_1
+                |-- calculator.rb
+            |-- hw_2
+        |-- ArunSood-arsood
+            |--hw_1
+                |--calculator.rb
+            |--hw_2
 ```
 
 Instructions
