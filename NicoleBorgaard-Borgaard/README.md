@@ -2,6 +2,8 @@ If you've found this readme, please send Nicole cute cat pictures. Thanks!
 
 Please note: the resources listed here are _not part of General Assembly's curriculum_ and should not be considered so. They are entirely independently aggregated materials Nicole finds to be useful to _anyone_ learning web development.
 
+If you'd like to contribute a resource you think is helpful to learning web development, that is _awesome_ :octocat: and I ask that you please submit a pull request.
+
 
 ## Table of Contents
  - [RailsCasts](#railscasts)
@@ -25,6 +27,8 @@ RailsCasts
 | 406 | [Public Activity](https://www.youtube.com/watch?v=HggWC4Xtmxg) | Add a user activity feed to your application with the public_activity gem. |
 | N/A | [Friendly_id](https://www.youtube.com/watch?v=WJcqs4C467Y&feature=youtu.be) | Pretty up your urls with the friendly_id gem. |
 | - | - | - |
+| - | - | - |
+| - | - | - |
 
 
 Nifty APIs
@@ -43,7 +47,10 @@ Nifty APIs
 | [SF Crimespotting](http://sanfrancisco.crimespotting.org/api) | Crime reports in SF. | - |
 | [US Earthquakes](http://earthquake.usgs.gov/fdsnws/event/1/) | Include Earthquake data in your application. | - |
 | [Bay Area Bike Share](http://www.bayareabikeshare.com/open-data) | What's cooler than bicycling data?! Bay Area Bike Share program allows short period bike rentals throughout the bay area. How can you make this data meaningful to your users? | - |
-| [BART](http://www.bart.gov/schedules/developers/api) |  | - |
+| [BART](http://www.bart.gov/schedules/developers/api) | BART data on routes, timetables, station updates, etc. | - |
+| [Walkable's Time Travel](https://www.walkscore.com/professional/travel-time-api.php) | Walkable scores locations based on their walkability to visualize one aspect of the quality of life index. | Add a walking distance [widget](https://www.walkscore.com/professional/travel-time-js-api.php#widget-example) to your map. |
+| - | - | - |
+| - | - | - |
 | - | - | - |
 
 
@@ -58,7 +65,7 @@ Handy Gems
 | [did_you_mean](https://github.com/yuki24/did_you_mean) | Automagically puts method corrections into the error message. |
 | - | - |
 | - | - |
-
+| - | - |
 
 
 Subscriptions
@@ -70,7 +77,10 @@ Subscriptions
 | [Girl Develop It](https://www.girldevelopit.com/) | GDI is another non-profit supporting women learning to code. | Workshops & events for women in tech. |
 | [Meetup](http://www.meetup.com/) | Meet with other developers! | Join Ruby and Ruby on Rails dev meetups in SF. |
 | [Ruby Rogues](https://devchat.tv/ruby-rogues/) | Weekly audiobook style discussions about programming. Discussions cover parts of the Ruby ecosystem, gems (libraries) as well as programming practices, tools, and careers. | - |
-|          |             | - |
+| - | - | - |
+| - | - | - |
+| - | - | - |
+
 
 Terminal
 ----
@@ -79,6 +89,8 @@ Terminal
 | [Command Line Murder Mystery](https://github.com/veltman/clmystery) | Solve a murder mystery in Terminal City while learning command line along the way. | Your terminal/command line/bash may be just text, but you'll quickly find it's one of the most powerful tools you have at the tip of your fingers as a developer. |
 | [zshell](https://github.com/robbyrussell/oh-my-zsh) | Make your terminal easy on the eyes with visual cues and highlighting. | You'll be a happier developer with zshell. Seriously. Highly recommended. |
 | - | - | - |
+| - | - | - |
+| - | - | - |
 
 Git
 ----
@@ -86,13 +98,17 @@ Git
 | :----------- | :---------- | :---------------- |
 | [Visualize Git version control](http://onlywei.github.io/explain-git-with-d3/) | Git has no visual interface, but the concepts are often taught with visual cues of commands. | Unsure how version control works? Try creating a visual with your git commands. |
 | - | - | - |
+| - | - | - |
+| - | - | - |
 
 Readings
 ----
 | Readings/Blogs | Think about: |
 | :------- | :----------- |
-| [Three things I learned from Sandi Metz](https://medium.com/misc-misc/review-sandi-metz-s-poodr-ch-1-4-wip-d4daac417665) | Public & Private classes and responsibilities |
-
+| [Three things I learned from Sandi Metz](https://medium.com/misc-misc/review-sandi-metz-s-poodr-ch-1-4-wip-d4daac417665) | Ruby's public & private Classes and responsibilities |
+| - | - |
+| - | - |
+| - | - |
 
 
 
