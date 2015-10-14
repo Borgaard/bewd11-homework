@@ -41,10 +41,8 @@ class Calculator
         puts @num1 / num2
         
         end
-    
-    
 end
 
-myCalc = Calculator.new
-mycalc.multiply
-mycalc.divide
+myCalc = run_calculator
+
+
