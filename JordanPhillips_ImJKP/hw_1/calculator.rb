@@ -23,7 +23,10 @@ class Calculator
     puts "#{@num1} modulo #{@num2} is #{@num1 % @num2}."
   end
   
-
+  def circumferences
+    puts "Circles with radii of #{@num1} and #{@num2} would have circumferences of #{2 * Math::PI.round(2) * @num1} and #{2 * Math::PI.round(2) * @num2}."
+  end
+  
 end
 
 a_calc = Calculator.new
@@ -31,3 +34,4 @@ a_calc.sum
 a_calc.difference
 a_calc.product
 a_calc.modulo_division
+a_calc.circumferences
