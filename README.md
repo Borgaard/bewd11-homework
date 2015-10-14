@@ -10,7 +10,7 @@ Follow these directions closely to switch over to this repository.
 
 1. Fork this repository.
 2. Clone your fork to your ```~/my_projects``` folder.
-3. Create a directory in the ```bewd11-homework``` folder using your real name and github account name, like ```bewd11-homework/NicoleBorgaard-Borgaard```. That will make it easier for us to remember who everyone's github name is. :)
+3. Create a directory in the ```bewd11-homework``` folder using your real name and github account name, like ```bewd11-homework/NicoleBorgaard-Borgaard```. That will make it easier for us to remember what everyone's github name is. :)
 4. For each homework make sure to put your files in a new `hw_x` directory in your named directory. Example for homework #3: `bewd11-homework/NicoleBorgaard-Borgaard/hw_3/`
 
 Example of what your folders should look something like:
@@ -47,13 +47,13 @@ Weekly Homework
 ----------------
 
 **Submit homework by pushing to your bewd11-homework repo, then submit a pull request.**    
-Unless otherwise specified, homework is given each Tuesday, and is always due the following Tuesday. Feedback on each ***on time*** assignment will be provided by Thursday. Late assignments are unlikely to receive feedback.
+Unless otherwise specified, homework is given each Thursday, and is always due the following Tuesday. Feedback on each ***on time*** assignment will be provided by Thursday via comments on pull requests. Late assignments are unlikely to receive feedback as we move forward with the class.
 
 | HW # | Assignment | Homework Outline | Due Date | Feedback |
 | :--: | :--------- | :--------------- | :------- | :------- |
 | 1    |  Review Git and complete both Ruby tutorials ---> | [Command Line and Git](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_1) | Thursday, October 8th | N/A |
-| 2    | `my_projects/bewd11-homework/YourName-username/hw_1/calculator.rb` | [Introduction to Ruby](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_2)           | -        | -        |
-| 3    |            | -           | -        | -        |
+| 2    | `my_projects/bewd11-homework/YourName-username/hw_1/calculator.rb` <br>Go through Ruby Primer in [Ruby Monk](https://rubymonk.com/) | [Introduction to Ruby](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_2) | Tuesday, October 13th | Thursday, October 15th |
+| 3    | `my_projects/bewd11-homework/YourName-username/hw_2/array_practice.rb` <br>Arrays in Ruby Monk ---> | [Ruby Basics](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_2/day_1) | Tuesday, October 20th | Thursday, October 22nd |
 | 4    |            | -           | -        | -        |
 | 5    |            | -           | -        | -        |
 | 6    |            | -           | -        | -        |
