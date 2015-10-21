@@ -17,7 +17,7 @@ p user_array1
 
 user_array2 = []
 
-for i in 0..user_names.length
+for i in 0...user_names.length
     user_array2[i] = [user_names[i], user_emails[i]]
 end
 
