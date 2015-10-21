@@ -12,5 +12,5 @@ array = user_names.to_a.sort.zip(user_emails.to_a.sort)
 p array
 puts " "
 puts "Into an array of hashes"
-hash = array.map { |subarray| Hash[*subarray] }
+hash = array.map { |subarray| Hash[:name => subarray[0], :email => subarray[1]] }
 p hash

@@ -18,7 +18,8 @@ user_names.each { |name|
         if email.downcase.include? names[0].downcase
             user = {}
 # Create the unique user hash             
-            user[name] = email
+            user["name:"] = name
+            user["email:"] = email
 # Push user array into multi dimentional user_matrix array            
             user_matrix.push(user)
         end
@@ -26,7 +27,8 @@ user_names.each { |name|
          if email.downcase.include? names[1].downcase
             user = {}
 # Create the unique user hash             
-            user[name] = email
+            user["name:"] = name
+            user["email:"] = email
 # Push user array into multi dimentional user_matrix array             
             user_matrix.push(user) 
         end
