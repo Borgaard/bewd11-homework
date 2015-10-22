@@ -54,7 +54,7 @@ Unless otherwise specified, homework is given each Thursday, and is always due t
 | 1    |  Review Git and complete both Ruby tutorials ---> | [Command Line and Git](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_1) | Thursday, October 8th | N/A |
 | 2    | `my_projects/bewd11-homework/YourName-username/hw_1/calculator.rb` <br>Go through Ruby Primer in [Ruby Monk](https://rubymonk.com/) | [Introduction to Ruby](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_2) | Tuesday, October 13th | Thursday, October 15th |
 | 3    | `my_projects/bewd11-homework/YourName-username/hw_2/array_practice.rb` <br>Arrays in Ruby Monk ---> | [Ruby Basics](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_2/day_1) | Tuesday, October 20th | Thursday, October 22nd |
-| 4    |            | -           | -        | -        |
+| 4    | Create a book manager in Rails | [First Rails App](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_3/day_1) | Tuesday, October 26th|  Thursday, October 28th |
 | 5    |            | -           | -        | -        |
 | 6    |            | -           | -        | -        |
 | 7    |            | -           | -        | -        |
