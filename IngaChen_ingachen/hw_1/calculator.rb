@@ -15,8 +15,10 @@ class Calculator
             puts Math.sin(@num1)
         elsif @operation == "square root"
             puts Math.sqrt(@num1)
-        else
+        elsif @operation == "tangent"
             puts Math.tan(@num1)
+        else
+            puts "Operation not recognized"
         end
     end
 end
