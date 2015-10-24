@@ -97,7 +97,7 @@ Git
 | Resource | Description | Why is it useful? |
 | :----------- | :---------- | :---------------- |
 | [Visualize Git version control](http://onlywei.github.io/explain-git-with-d3/) | Git has no visual interface, but the concepts are often taught with visual cues of commands. | Unsure how version control works? Try creating a visual with your git commands. |
-| - | - | - |
+| [Git Kitchen](http://blog.flatironschool.com/git-kitchen-with-chef-ramsay/) with Gordon Ramsay | Gordon Ramsay teaches you git with angry cooking | Excellent analogy of how git works. Highly recommended! |
 | - | - | - |
 | - | - | - |
 
@@ -109,6 +109,3 @@ Readings
 | - | - |
 | - | - |
 | - | - |
-
-
-
