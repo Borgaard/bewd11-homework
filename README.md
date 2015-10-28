@@ -55,7 +55,7 @@ Unless otherwise specified, homework is given each Thursday, and is always due t
 | 1    | `my_projects/bewd11-homework/YourName-username/hw_1/calculator.rb` <br>Go through Ruby Primer in [Ruby Monk](https://rubymonk.com/) | [Introduction to Ruby](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_1/day_2) | Tuesday, October 13th | Thursday, October 15th |
 | 2    | `my_projects/bewd11-homework/YourName-username/hw_2/array_practice.rb` <br>Arrays in Ruby Monk ---> | [Ruby Basics](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_2/day_1) | Tuesday, October 20th | Thursday, October 22nd |
 | 3    | Create a book manager in Rails | [First Rails App](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_3/day_1) | Tuesday, October 27th|  Thursday, October 29th |
-| 4    |            | -           | -        | -        |
+| 4    | Book application, continued: Your task is to set up your book application to create, edit, and delete books via forms. | [Book application with complete **C**reate **R**ead **U**pdate **D**elete](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_4/day_1) | Tuesday, November 3rd | Thursday, November 5th |
 | 5    |            | -           | -        | -        |
 | 6    |            | -           | -        | -        |
 | 7    |            | -           | -        | -        |
