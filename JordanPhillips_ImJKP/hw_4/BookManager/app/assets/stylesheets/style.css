@@ -14,18 +14,18 @@
 	margin-top:20px;
 }
 
-.wine-container {
+.book-container {
 	padding:20px 0;
 	background-color:#FFF;
 	transition:all 0.3s linear;
 }
 
-.wine-container:hover {
+.book-container:hover {
 	background-color:#DDD;
 	transition:all 0.3s ease-in-out;
 }
 
-.wine-container img {
+.book-container img {
 	border-radius:5px;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
