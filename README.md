@@ -60,4 +60,6 @@ Unless otherwise specified, homework is given each Thursday, and is always due t
 | 6    |            | -           | -        | -        |
 | 7    |            | -           | -        | -        |
 | 8    |            | -           | -        | -        |
+| 9    |            | -           | -        | -        |
+| 10   |            | -           | -        | -        |
 | ...  |            | -           | -        | -        |
