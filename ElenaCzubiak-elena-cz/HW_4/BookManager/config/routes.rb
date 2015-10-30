@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
     
-    get "/" => "manager#index"
-    get "/edit" => "manager#edit"
+    get "/books" => "manager#index"
+    post "/books" => "manager#create"
+    get "/books/:id/edit" => "manager#edit", :as => :book
+    put "/books/:id/edit" => "manager#update"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
