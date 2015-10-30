@@ -16,7 +16,7 @@ user_emails = ["bob@gmail.com", "csmith@yahoo.com", "kscott@hotmail.com"]
 def loop_approach(names,emails)
   i = 0
   merged_array=[]
-  for i in 0..names.length-1 do
+  for i in 0...names.length do
     merged_array[i] = [names[i],emails[i]]
     i += 1
   end
@@ -31,7 +31,7 @@ end
 def iterator_approach(names,emails)
   merged_array = []
   names.each_with_index do |name,i| 
-    merged_array[i] = [names[i],emails[i]]
+    merged_array[i] = [name,emails[i]]
   end
   return merged_array
 end
