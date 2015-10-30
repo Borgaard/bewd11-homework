@@ -17,7 +17,7 @@ def merge_arrays2 (array1, array2) # USES DO
         user_entry = []
         #user_entry[0] = value 
         user_entry[0] = array1[index]
-        user_entry[1] = array2[index] 
+        user_entry[1] = array2[index] # could do user_entry = [value, array2[index]
         users << user_entry  
     end
     return users 
@@ -80,3 +80,14 @@ p array_with_hash2
 
 
 puts "\nQuestion: The above gives me the format :name => value, as opposed to name: value. Why is that?" 
+
+=begin 
+user_data =[]
+i = 0 
+
+until i >= user_names.length do
+    user_data << [user_names[i], user_emails[i]]
+    i += i
+end
+=end
+

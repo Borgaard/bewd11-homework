@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
 get "/" => "books#index"
 post "/books" => "books#create"
-get "/edit" => "books#edit"
+#get "/edit" => "books#edit"
 
+ get "/books/:id/edit" => "books#edit", :as => :book 
+ put "/books/:id/edit" => "books#update"
 
+delete "/books/:id/delete" => "books#delete"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
