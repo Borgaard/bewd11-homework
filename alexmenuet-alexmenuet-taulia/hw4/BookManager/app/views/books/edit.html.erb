@@ -17,7 +17,7 @@
 	<div>
 		<a href="/"><< Go Back</a>
 	</div>
-	<%= form_for @book, url: {action: "submit"}, html: {method: "post"} do |f|  %>
+	<%= form_for(@book, method: "PUT") do |f|  %>
 	<%= f.hidden_field :id %>
 	<div class="bold margin-top-20">
 		Title:

@@ -16,47 +16,47 @@ class BooksController < ApplicationController
         render "edit"
     end
     
-    def submit
-        if params[:commit] == "Submit"
-            !update
-        elsif params[:commit] == "Save"
-            !save
-        elsif params[:commit] == "Search"
-            !search
-        end
-    end
-    
-    
     def update
         book = params[:book]
         @db_book = Book.find(book[:id])
-        @db_book.update(title: book[:title], 
-                        author: book[:author], 
-                        release_date: book[:release_date],
-                        image_url: book[:image_url])
-        !index
+        @db_book.update(book_params)
+        redirect_to "/books/"
     end
     
     def save
-        saved_book = params[:book]
-        new_book = Book.create(title: saved_book[:title], 
-                        author: saved_book[:author], 
-                        release_date: saved_book[:release_date],
-                        image_url: saved_book[:image_url])
-        !index
+        !initialize
+        @new_book = Book.new(book_params)
+        @new_book.save
+        if @new_book.valid?
+            redirect_to "/books"
+        else
+            flash[:error] = :error
+            redirect_to books_path
+        end
     end
     
     def search
-        !initialize
-        searching = params[:search]
-        @books = Book.where("title LIKE (?)", "%#{searching}%")
+        @search = params[:search]
+        @books = Book.where("title LIKE (?)", "%#{@search}%")
         if @books.empty? == true
-            @books = Book.where("author LIKE (?)", "%#{searching}%")
+            @books = Book.where("author LIKE (?)", "%#{@search}%")
         end
         if @books.empty? == true
-            @books = Book.where("release_date LIKE (?)", "%#{searching}%")
+            @books = Book.where("release_date LIKE (?)", "%#{@search}%")
         end
         render "index"
     end
     
+    def delete
+        @db_book = Book.find(params[:id])
+        @db_book.destroy
+        redirect_to "/books/"
+    end
+    
+    
+    
+private
+    def book_params
+        params.require(:book).permit(:title,:author,:release_date,:image_url)
+    end
 end

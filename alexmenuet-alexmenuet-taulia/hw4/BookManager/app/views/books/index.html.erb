@@ -14,15 +14,14 @@
 <body>
 
 <div class="container">
+ 
 	<div class="margin-top-20">
 		<a href="#" data-toggle="modal" data-target="#add-book-modal" class="btn btn-primary">Add New Book</a>
-		<div>
-    		<%= form_for @search, url: {action: "search"}, html: {method: "post"} do |search|  %>
-    		<%= search.text_field(:search, placeholder: "search a book") %>
-    		<%= search.submit class: "btn btn-primary", value: "Search" %>
-    		<a href="/" class="btn btn-default">Reset Filter</a>
-    		<%end%>
-		</div>
+        <% if flash[:error] %>
+            <div class="alert alert-danger">
+                <%= flash[:error] %>
+            </div>
+        <% end %>
 	</div>
 	<!--One Wine-->
 	<% @books.each do |book| %>
@@ -38,10 +37,11 @@
 				<span class="bold">Author: </span><span><%= book.author %></span>
 			</div>
 			<div>
-				<span class="bold">Release Date: </span><span><%= book.release_date %></span>
+				<span class="bold">Release Date: </span><span><%= book.release_date.to_s(:long) %></span>
 			</div>
 			<div class="margin-top-20">
-				<a href="edit/<%= book.id %>" class="btn btn-default">Edit Book</a>
+				<a href="/books/<%= book.id %>/edit" class="btn btn-default">Edit Book</a>
+				<a href="/books/<%= book.id %>" class="btn btn-default">Delete Book</a>
 			</div>
 		</div>
 	</div>
@@ -57,7 +57,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Add New Wine</h4>
 			</div>
-			<%= form_for @new_book, url: {action: "save"}, html: {method: "post"} do |f|  %>
+			<%= form_for @new_book, action: "save" do |f|  %>
 			<div class="modal-body">
 				<div class="bold">
 					Title
