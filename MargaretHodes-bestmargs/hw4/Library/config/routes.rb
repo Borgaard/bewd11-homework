@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
     
-    #get "/" => "library#index"
-    #get "/books/:id/edit" => "library#edit", :as => :user
-    #post "/books" => "library#create"
-    #put "/books/:id/edit" => "library#update"
-    #delete "/books/:id" => "library#destroy", :as => :user_delete
+    get "/" => "book#index"
+    get "/books/:id/edit" => "book#edit", :as => :user
+    post "/books" => "book#create"
+    put "/books/:id/edit" => "book#update"
+    delete "/books/:id" => "book#destroy", :as => :user_delete
     
 	resources :books    do
 	       resources :stores
