@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+    resources :stores do
+       get '/library' => "stores#show" 
+       patch '/library/' => "stores#add"
+    end
     get '/books' => "books#index"
     get '/books/:id/edit' => "books#edit", :as => :book
     get '/books/:id' => "books#delete"
