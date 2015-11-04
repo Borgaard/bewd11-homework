@@ -1,4 +1,4 @@
-class ManagerController < ApplicationController
+class BooksController < ApplicationController
     
     def index
        @books = Book.all
@@ -13,13 +13,28 @@ class ManagerController < ApplicationController
     end 
     
     def create
-       Book.create(book_params) 
+       book = Book.new(book_params)
+       book.save
        
-       redirect_to "/books"
-    end    
+       if book.valid?
+            redirect_to "/books"
+        else 
+            flash[:error] = "Please fill in all the fields"
+            redirect_to "/books"
+        end
+       
+    end  
+    
     
     def update
         book = Book.find(params[:id]).update_attributes(book_params)
+        
+        redirect_to "/books"
+    end 
+    
+    def destroy
+        book = Book.find(params[:id])
+        book.destroy
         
         redirect_to "/books"
     end    

@@ -34,4 +34,9 @@
 		<button type="submit" class="btn btn-success">Submit Edits</button>
 	</div>
 	<% end %>
+	<%= form_tag(book_path(@book.id), method: "DELETE") do %>
+	<div class="margin-top-20">
+	    <button type="submit" class="btn btn-danger">Delete Book</button>
+	<% end %>    
+	</div>
 </div>
