@@ -13,38 +13,32 @@
 </head>
 <body>
 
-<% @book.each do |book| %>
+<% @store.each do |store| %>
 <div class="container well margin-top-20 small-container">
 	<div>
 		<a href="/"><< Go Back</a>
 	</div>
 	<div class="bold margin-top-20">
-		Title
+		Store Name
 	</div>
 	<div class="margin-top-20">
-        <%= f.text_field :title %>
+        <%= f.text_field :store_name %>
 	</div>
 	<div class="bold margin-top-20">
-		Author
+		Address
 	</div>
 	<div class="margin-top-20">
-        <%= f.text_field :author %>
+        <%= f.text_field :address %>
 	</div>
 	<div class="bold margin-top-20">
-		Release Date
+		URL
 	</div>
 	<div class="margin-top-20">
-        <%= f.text_field :release_date %>
-	</div>
-	<div class="bold margin-top-20">
-		Image
-	</div>
-	<div class="margin-top-20">
-        <%= f.text_field :image %>
+        <%= f.text_field :store_url %>
 	</div>
 	<div class="margin-top-20">
 		<a href="/" class="btn btn-default" >Cancel</a>
-		<button type="submit" class="btn btn-success">Submit Edits</button>
+		<button type="submit" class="btn btn-success">Submit Store</button>
 	</div>
 </div>
 <% end %>

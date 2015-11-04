@@ -1,4 +1,4 @@
-class LibraryController < ApplicationController
+class BookController < ApplicationController
     def index
         @books = Book.all   
         
@@ -7,11 +7,6 @@ class LibraryController < ApplicationController
         render "index"
     end
     
-	def edit
-		@book = Book.find(params[:id])
-		
-		render "edit"
-	end
     
     def create
         #User.create(firstname: params[:user][:firstname], lastname: params[:user][:lastname], username: params[:user][:username], role: params[:user][:role])
@@ -20,31 +15,9 @@ class LibraryController < ApplicationController
         
         book.save
         
-        if book.valid?
-            redirect_to "/" #can redirect back to any route
-		else
-			flash[:error] = "Form validation failed"
-			redirect_to books_path
-		end
-        
+        redirect_to "/books" #can redirect back to any route
     end
     
-	def update
-		book = Book.find(params[:id])
-		
-		book.update_attributes(book_params)
-		
-		redirect_to "/"
-	end
-    
-   
-	def destroy
-		book = Book.find(params[:id])
-		
-		book.destroy
-		
-		redirect_to "/"
-	end   
    
 private  #everything under is a private mehtod, not accessible outside of this class
     
@@ -52,4 +25,3 @@ private  #everything under is a private mehtod, not accessible outside of this c
         params.require(:book).permit(:title, :author, :release_date, :image)
     end
 end
-	

@@ -23,6 +23,7 @@
 		<div class="col-sm-3">
 			<img src=<%=book.image%> class="img-responsive" />
 		</div>
+		
 		<div class="col-sm-9">
 			<div class="margin-top-20">
 				<span class="bold">Title: </span><span><%= book.title %>
@@ -34,8 +35,15 @@
 				<span class="bold">Release Date: </span><span><%= book.release_date %></span>
 			</div>
 			<div class="margin-top-20">
-				<a href="/edit/:id" class="btn btn-default">Edit Book</a>
+				<a href="/books/<%= book.id %>/edit" class="btn btn-default">Edit Book</a>
+			 </div/>
+			 <div class="margin-top-20">
+				
+				<a href="<%= book_stores_path(book.id) %>" class="btn btn-warning">Store</a>
+				<a href="<%= new_book_store_path(book.id) %>" class="btn btn-warning">Add Store</a>
+
 			</div>
+			
 		</div>
 	</div>
 	<% end %>
