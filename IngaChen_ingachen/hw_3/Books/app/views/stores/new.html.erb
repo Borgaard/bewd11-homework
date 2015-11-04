@@ -1,0 +1,19 @@
+<%= form_for([@book, @store], url: book_stores_path, method: "POST") do |f| %>
+	<div class="container">
+		<div class="bold margin-top-20">
+		Store Name
+		</div>
+		<div>
+			<%= f.text_field :storename, class: "form-control" %>
+		</div>
+		<div class="bold margin-top-20">
+		Store Address
+		</div>
+		<div>
+			<%= f.text_field :storeaddress, class: "form-control" %>
+		</div>
+		<div>
+			<%= f.submit(class: "btn btn-primary") %>
+		</div>
+	</div>
+<% end %>
