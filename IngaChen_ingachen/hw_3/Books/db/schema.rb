@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103191054) do
+ActiveRecord::Schema.define(version: 20151104021703) do
 
-  create_table "libraries", force: true do |t|
+  create_table "books", force: true do |t|
     t.string   "title"
     t.string   "author"
     t.date     "release_date"
