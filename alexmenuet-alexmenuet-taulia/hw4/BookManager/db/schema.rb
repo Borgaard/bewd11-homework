@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024233039) do
+ActiveRecord::Schema.define(version: 20151103191449) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -21,5 +21,30 @@ ActiveRecord::Schema.define(version: 20151024233039) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "joined_tables", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "store_id"
+  end
+
+  add_index "joined_tables", ["book_id"], name: "index_joined_tables_on_book_id"
+  add_index "joined_tables", ["store_id"], name: "index_joined_tables_on_store_id"
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "street"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image_url"
+    t.string   "store_type"
+  end
+
+  create_table "stores_books", id: false, force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "book_id"
+  end
+
+  add_index "stores_books", ["store_id", "book_id"], name: "index_stores_books_on_store_id_and_book_id"
 
 end

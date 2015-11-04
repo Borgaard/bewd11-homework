@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Book Manager App</title>
+	<title>Store Manager App</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -12,40 +12,37 @@
 	<link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
-
 <div class="container well margin-top-20 small-container">
-    <h1>Book listing</h1>
+    <h1>Store listing</h1>
 </div>
-
 <div class="container">
+ 
 	<div class="margin-top-20">
-		<a href="#" data-toggle="modal" data-target="#add-book-modal" class="btn btn-primary">Add New Book</a>
-		<%= link_to "Store Listing", stores_path, class: "btn btn-default"%>
-        <% if flash[:error] %>
-            <div class="alert alert-danger">
-                <%= flash[:error] %>
-            </div>
-        <% end %>
+		<a href="#" data-toggle="modal" data-target="#add-store-modal" class="btn btn-primary">Add New Store</a>
+		<%= link_to "Book Listing", books_path, class: "btn btn-default"%>
 	</div>
 	<!--One Wine-->
-	<% @books.each do |book| %>
+	<% @stores.each do |store| %>
 	<div class="row margin-top-20 wine-container">
 		<div class="col-sm-3">
-			<img src="<%= book.image_url %>" class="img-responsive" />
+			<img src="<%= store.image_url %>" class="img-responsive" />
 		</div>
 		<div class="col-sm-9">
 			<div class="margin-top-20">
-				<span class="bold">Title: </span><span><%= book.title %></span>
+				<span class="bold">Name: </span><span><%= store.name %></span>
 			</div>
 			<div>
-				<span class="bold">Author: </span><span><%= book.author %></span>
+				<span class="bold">Type: </span><span><%= store.store_type %></span>
 			</div>
 			<div>
-				<span class="bold">Release Date: </span><span><%= book.release_date.to_s(:long) %></span>
+				<span class="bold">City: </span><span><%= store.city %></span>
+			</div>
+			<div>
+				<span class="bold">Location: </span><span><%= store.street %></span>
 			</div>
 			<div class="margin-top-20">
-				<a href="/books/<%= book.id %>/edit" class="btn btn-default">Edit Book</a>
-				<a href="/books/<%= book.id %>" class="btn btn-default">Delete Book</a>
+				<a href="/stores/<%= store.id %>/edit" class="btn btn-default">Edit Store</a>
+				<a href="/stores/<%= store.id %>/library" class="btn btn-default">View Store Library</a>
 			</div>
 		</div>
 	</div>
@@ -54,43 +51,49 @@
 </div>
 
 <!--Add Wine Modal-->
-<div id="add-book-modal" class="modal fade">
+<div id="add-store-modal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Add New Book</h4>
+				<h4 class="modal-title">Add New Store</h4>
 			</div>
-			<%= form_for @new_book, action: "save" do |f|  %>
+			<%= form_for @new_store do |store|  %>
 			<div class="modal-body">
 				<div class="bold">
-					Title
+					Name
 				</div>
 				<div class="margin-top-20">
-					<%= f.text_field(:title, class: "form-control")  %>
+					<%= store.text_field(:name, class: "form-control")  %>
 				</div>
 				<div class="bold margin-top-20">
-					Author
+					Type
 				</div>
 				<div class="margin-top-20">
-					<%= f.text_field(:author, class: "form-control") %>
+					<%= store.text_field(:store_type, class: "form-control") %>
 				</div>
 				<div class="bold margin-top-20">
-					Release Date
+					City
 				</div>
 				<div class="margin-top-20">
-					<%= f.text_field(:release_date, class: "form-control") %>
+					<%= store.text_field(:city, class: "form-control") %>
+				</div>
+				<div class="bold margin-top-20">
+					Street
+				</div>
+				<div class="margin-top-20">
+					<%= store.text_field(:street, class: "form-control") %>
 				</div>
 				<div class="bold margin-top-20">
 					Image
 				</div>
 				<div class="margin-top-20">
-					<%= f.text_field(:image_url, class: "form-control") %>
+					<%= store.text_field(:image_url, class: "form-control") %>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<%= f.submit class: "btn btn-primary", value: "Save" %>
+				<%= store.submit class: "btn btn-primary", value: "Save" %>
 			</div>
 			<%end%>
 		</div><!-- /.modal-content -->
