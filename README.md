@@ -57,7 +57,7 @@ Unless otherwise specified, homework is given each Thursday, and is always due t
 | 3    | Create a book manager in Rails | [First Rails App](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_3/day_1) | Tuesday, October 27th|  Thursday, October 29th |
 | 4    | Book application, continued: Your task is to set up your book application to create, edit, and delete books via forms. | [Book application with complete **C**reate **R**ead **U**pdate **D**elete](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_4/day_1) | Tuesday, November 3rd | Thursday, November 5th |
 | 5    | Add validations to your Book Manager app. Create a Store model associated to your Book model. | [Validations & Associations](https://github.com/arun-instructor/BEWD11-Arun/blob/master/week_4%2Fday_2) | Tuesday, November 3rd | Thursday, November 5th |
-| 6    |            | -           | -        | -        |
+| 6    | In Book Manager app, create functionality to add clients and products via forms. | [Many to many associations](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_5/day_1) | Tuesday, November 10th | Tuesday, November 12th |
 | 7    |            | -           | -        | -        |
 | 8    |            | -           | -        | -        |
 | 9    |            | -           | -        | -        |
