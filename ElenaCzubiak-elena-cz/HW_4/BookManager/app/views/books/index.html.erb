@@ -2,6 +2,11 @@
 
 <div class="container">
 	<div class="margin-top-20">
+	<% if flash[:error] %>
+	    <div class="alert alert-danger">
+	        <%= flash[:error] %> 
+	   </div>    
+	   <% end %>
 		<a href="#" data-toggle="modal" data-target="#add-book-modal" class="btn btn-primary">Add New Book</a>
 	</div>
 	<!--One Book-->
@@ -22,7 +27,10 @@
 				<span class="bold">Release Date: </span><span><%= book.date %></span>
 			</div>
 			<div class="margin-top-20">
-				<a href="/books/<%= book.id %>/edit" class="btn btn-default">Edit Book</a>
+				<a href="<%= book_stores_path(book.id) %>" class="btn btn-default">Stores</a>
+			</div>			
+			<div class="margin-top-20">
+				<a href="<%= edit_book_path(book.id) %>" class="btn btn-default">Edit Book</a>
 			</div>
 		</div>
 	</div>
