@@ -13,35 +13,30 @@
 </head>
 <body>
 
-<% @store.each do |store| %>
-<div class="container well margin-top-20 small-container">
-	<div>
-		<a href="/"><< Go Back</a>
+
+<%= form_for [@book, @store] do |f| %>
+	<div class="container">
+		<div>
+		<a href="/books/<%= @book.id %>/stores/" ><< Go Back</a>
+	    </div>
+	    <div class="bold margin-top-20"> Store Name </div>
+		<div>
+			<%= f.text_field :store_name, class: "form-control" %>
+		</div>
+	    <div class="bold margin-top-20"> Address </div>
+		<div>
+			<%= f.text_field :address, class: "form-control" %>
+		</div>
+		<div class="bold margin-top-20"> URL </div>
+		<div>
+			<%= f.text_field :store_url, class: "form-control" %>
+		</div>
+		<div>
+			<%= f.submit(class: "btn btn-primary") %>
+		</div>
 	</div>
-	<div class="bold margin-top-20">
-		Store Name
-	</div>
-	<div class="margin-top-20">
-        <%= f.text_field :store_name %>
-	</div>
-	<div class="bold margin-top-20">
-		Address
-	</div>
-	<div class="margin-top-20">
-        <%= f.text_field :address %>
-	</div>
-	<div class="bold margin-top-20">
-		URL
-	</div>
-	<div class="margin-top-20">
-        <%= f.text_field :store_url %>
-	</div>
-	<div class="margin-top-20">
-		<a href="/" class="btn btn-default" >Cancel</a>
-		<button type="submit" class="btn btn-success">Submit Store</button>
-	</div>
-</div>
 <% end %>
+
 
 <!--jQuery-->
 <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>

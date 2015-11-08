@@ -17,7 +17,7 @@
 <%= form_for(@book, method: "PUT") do |f| %>
 <div class="container well margin-top-20 small-container">
 	<div>
-		<a href="/"><< Go Back</a>
+		<a href="/books"><< Go Back</a>
 	</div>
 	<div class="bold margin-top-20">
 		Title
@@ -44,7 +44,7 @@
         <%= f.text_field :image %>
 	</div>
 	<div class="margin-top-20 txt-right">
-		<a href="#" class="btn btn-default">Cancel</a>
+		<a href="/books" class="btn btn-default">Cancel</a>
 		<button type="submit" class="btn btn-primary">Edit Book</button>
 	</div>
 </div>

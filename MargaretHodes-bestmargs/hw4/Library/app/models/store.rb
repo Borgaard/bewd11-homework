@@ -1,5 +1,3 @@
 class Store < ActiveRecord::Base
-
-	belongs_to :book
-	
+    belongs_to :book
 end
