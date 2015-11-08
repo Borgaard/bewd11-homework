@@ -1,17 +1,15 @@
-class StoreController < ApplicationController
-
-
+class StoresController < ApplicationController
 	def index
-		@stores = Book.find(params[:title]).stores
+		@stores = Book.find(params[:book_id]).stores
 	end
 	
 	def new
-		@book = Book.find(params[:title])
+		@book = Book.find(params[:book_id])
 		@store = Store.new
 	end
 	
 	def create
-		Book.find(params[:title]).stores.create(store_params)
+		Book.find(params[:book_id]).stores.create(store_params)
 		
 		redirect_to books_path
 	end

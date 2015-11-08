@@ -36,14 +36,8 @@
 			</div>
 			<div class="margin-top-20">
 				<a href="/books/<%= book.id %>/edit" class="btn btn-default">Edit Book</a>
-			 </div/>
-			 <div class="margin-top-20">
-				
-				<a href="<%= book_stores_path(book.id) %>" class="btn btn-warning">Store</a>
-				<a href="<%= new_book_store_path(book.id) %>" class="btn btn-warning">Add Store</a>
-
-			</div>
-			
+				<a href="<%= book_stores_path(book.id) %>" class="btn btn-warning">Stores</a>
+			</div/>			
 		</div>
 	</div>
 	<% end %>
