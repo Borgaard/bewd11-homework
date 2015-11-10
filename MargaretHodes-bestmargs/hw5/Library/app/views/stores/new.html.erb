@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+    <%= form_for [@book, @store] do |f| %>
+    	<div class="container">
+    		<div>
+    		<a href="/books/<%= @book.id %>/stores/" ><< Go Back</a>
+    	    </div>
+    	    <div class="bold margin-top-20"> Store Name </div>
+    		<div>
+    			<%= f.text_field :store_name, class: "form-control" %>
+    		</div>
+    	    <div class="bold margin-top-20"> Address </div>
+    		<div>
+    			<%= f.text_field :address, class: "form-control" %>
+    		</div>
+    		<div class="bold margin-top-20"> URL </div>
+    		<div>
+    			<%= f.text_field :store_url, class: "form-control" %>
+    		</div>
+    		<div>
+    			<%= f.submit(class: "btn btn-primary") %>
+    		</div>
+    	</div>
+    <% end %>
+<% end %>

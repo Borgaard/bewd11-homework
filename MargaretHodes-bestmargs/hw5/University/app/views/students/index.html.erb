@@ -1,0 +1,12 @@
+<table>
+	<% @students.each do |student| %>
+		<tr>
+			<td><%= student.name %></td>
+			<td><%= student.email %></td>
+			<td><%= student.age %></td>
+			<td>
+				<a href="<%= enrollments_student_path(student.id) %>">Enrollments</a>
+			</td>
+		</tr>
+	<% end %>
+</table>
