@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: 'users/registrations', passwords: 'users/passwords'}
+  root "homes#index"
     resources :stores do
        get '/library' => "stores#show" 
        patch '/library/' => "stores#add"

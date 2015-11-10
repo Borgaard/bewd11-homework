@@ -1,4 +1,6 @@
 Rails.application.configure do
+    
+    Rails.application.routes.default_url_options[:host] = 'http://uzkk3e3b8aa8.zander2.koding.io:4000'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

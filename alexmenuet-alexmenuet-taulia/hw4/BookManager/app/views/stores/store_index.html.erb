@@ -12,8 +12,13 @@
 	<link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
+
 <div class="container well margin-top-20 small-container">
-    <h1>Store listing</h1>
+    <h1 class="col-md-4">Store listing</h1>
+    <div class="col-md-4 col-md-offset-4 span6 pull-right">
+    <img src="<%=@user.image_url%>" class="img-responsive img-rounded col-md-5 col-md-offset-5 text-right" />
+    <%= link_to('Logout', destroy_user_session_path, :method => :get, class: "col-md-5 col-md-offset-5 text-right") %>
+    </div>
 </div>
 <div class="container">
  
