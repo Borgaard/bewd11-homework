@@ -50,7 +50,7 @@ Nifty APIs
 | [BART](http://www.bart.gov/schedules/developers/api) | BART data on routes, timetables, station updates, etc. | - |
 | [Walkable's Travel Time](https://www.walkscore.com/professional/travel-time-api.php) | Walkable scores locations based on their walkability to visualize one aspect of the quality of life index. | Add a walking distance [widget](https://www.walkscore.com/professional/travel-time-js-api.php#widget-example) to your map. |
 | [An API for Everything](https://www.producthunt.com/e/an-api-for-everything) | Product Hunt offers an API for everything | - |
-| - | - | - |
+| [Featured Open Data](https://github.com/showcases/open-data) | Open data on exoplanets, veterans, CERN, food inspections, congressional districts, congress legislators, etc. | - |
 | - | - | - |
 
 
