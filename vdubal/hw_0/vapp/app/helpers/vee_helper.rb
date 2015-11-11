@@ -1,0 +1,2 @@
+module VeeHelper
+end
