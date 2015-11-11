@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     
     devise_for :users
     
-    root "books#index"
+    #root "books#index"
   
     #get "/" => "books#index"
     #get "/books/:id/edit" => "books#edit", :as => :book

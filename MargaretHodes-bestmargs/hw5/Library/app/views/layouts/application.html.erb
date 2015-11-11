@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Libraryp</title>
+	<title>Library</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
             <a href="<%= new_user_session_path(current_user) %>" class="btn btn-default">Log In</a>
         <% end %>
         <% if user_signed_in? %>
-        	<a href="<%= destroy_user_session_path(current_user) %>" class="btn btn-default">Log Out</a>
+        	<a href="<%= destroy_user_session_path %>" class="btn btn-default">Log Out</a>
         <% end %>
     </div>
 </div>
