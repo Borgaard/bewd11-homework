@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>My Blog</title>
+
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+    <link href="pagination.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Blog.Ly</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= @user.first_name%> <%= @user.last_name%> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to('New Post', new_blog_path, :method => :get) %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-header">BEWD11's Blog
+                </h1>
+            </div>
+        
+        <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Blog Search Well -->
+                <div class="well">
+                <%= form_for @search, :url => "/", :method => "GET", :action => "search" do |search| %>
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <%= search.text_field(:search, class: "form-control", placeholder: "seacrh a blog") %>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Search<span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                <% end %>
+                    <!-- /.input-group -->
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Post One -->
+
+<% for pst in @posts %>
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive img-blog" src="<%= pst.image_url %>" alt="">
+                </a>
+            </div>
+            <div class=" col-md-5post-container">
+                <div> 
+                    <h3><%= pst.title %>  <small>by <%=pst.user.first_name%> <%=pst.user.last_name%></small></h3>
+                </div>
+                <div class="blog-extract">
+                    <p><%= simple_format(pst.post_body.truncate_words(80))%></p>
+                </div>
+                <div>
+                    <%= link_to(blog_path(pst.id), :method => :get, class: "btn btn-primary") do %>
+                        View Full Post <span class="glyphicon glyphicon-chevron-right"></span>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+        <hr>
+<%end%>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Pagination -->
+        <div class="text-center">
+            <div class="digg_pagination">
+                <%= will_paginate @posts, :container => true %>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Arun Sood & Alex Menuet - 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
