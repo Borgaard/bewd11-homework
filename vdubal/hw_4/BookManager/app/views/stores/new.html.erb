@@ -1,0 +1,24 @@
+<div class="container well margin-top-20 small-container">
+
+	<%= form_for [@book, @store] do |f| %>
+	
+	<div class="bold margin-top-20">
+		Store name
+	</div>
+	<div class="margin-top-20">
+		<%= f.text_field :name %>
+	</div>
+	<div class="bold margin-top-20">
+		Location
+	</div>
+	<div class="margin-top-20">
+		<%= f.text_field :location %>
+	</div>
+	
+	<div class="margin-top-20">
+		<a href="/books" class="btn btn-default">Cancel</a>
+		<button type="submit" class="btn btn-success">Save</button>
+	</div>
+	<% end %>
+	
+</div>

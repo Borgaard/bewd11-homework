@@ -18,6 +18,8 @@ class Calculator
             puts @numberOne + @numberTwo
         else
             puts @numberOne - @numberTwo
+        end
+    end
             
     def log
         puts Math.log(@numberOne)
@@ -35,14 +37,15 @@ class Calculator
     end
     
     def multiply
-        puts @numberOne * puts @numberTwo
+        puts @numberOne * @numberTwo
     end
-       
 end
 
 myCalculator = Calculator.new
     
 myCalculator.log
-mycalculatoralculator.cos
+myCalculator.cos
 myCalculator.tan
 myCalculator.multiply
+
+myCalculator.run_calculator

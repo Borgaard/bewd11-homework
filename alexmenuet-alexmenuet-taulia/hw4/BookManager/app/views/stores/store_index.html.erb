@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Store Manager App</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<div class="container well margin-top-20 small-container">
+    <h1>Store listing</h1>
+</div>
+<div class="container">
+ 
+	<div class="margin-top-20">
+		<a href="#" data-toggle="modal" data-target="#add-store-modal" class="btn btn-primary">Add New Store</a>
+		<%= link_to "Book Listing", books_path, class: "btn btn-default"%>
+	</div>
+	<!--One Wine-->
+	<% @stores.each do |store| %>
+	<div class="row margin-top-20 wine-container">
+		<div class="col-sm-3">
+			<img src="<%= store.image_url %>" class="img-responsive" />
+		</div>
+		<div class="col-sm-9">
+			<div class="margin-top-20">
+				<span class="bold">Name: </span><span><%= store.name %></span>
+			</div>
+			<div>
+				<span class="bold">Type: </span><span><%= store.store_type %></span>
+			</div>
+			<div>
+				<span class="bold">City: </span><span><%= store.city %></span>
+			</div>
+			<div>
+				<span class="bold">Location: </span><span><%= store.street %></span>
+			</div>
+			<div class="margin-top-20">
+				<a href="/stores/<%= store.id %>/edit" class="btn btn-default">Edit Store</a>
+				<a href="/stores/<%= store.id %>/library" class="btn btn-default">View Store Library</a>
+			</div>
+		</div>
+	</div>
+	<%end%>
+	<!--/One Book-->
+</div>
+
+<!--Add Wine Modal-->
+<div id="add-store-modal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Add New Store</h4>
+			</div>
+			<%= form_for @new_store do |store|  %>
+			<div class="modal-body">
+				<div class="bold">
+					Name
+				</div>
+				<div class="margin-top-20">
+					<%= store.text_field(:name, class: "form-control")  %>
+				</div>
+				<div class="bold margin-top-20">
+					Type
+				</div>
+				<div class="margin-top-20">
+					<%= store.text_field(:store_type, class: "form-control") %>
+				</div>
+				<div class="bold margin-top-20">
+					City
+				</div>
+				<div class="margin-top-20">
+					<%= store.text_field(:city, class: "form-control") %>
+				</div>
+				<div class="bold margin-top-20">
+					Street
+				</div>
+				<div class="margin-top-20">
+					<%= store.text_field(:street, class: "form-control") %>
+				</div>
+				<div class="bold margin-top-20">
+					Image
+				</div>
+				<div class="margin-top-20">
+					<%= store.text_field(:image_url, class: "form-control") %>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= store.submit class: "btn btn-primary", value: "Save" %>
+			</div>
+			<%end%>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--/Add Wine Modal-->
+
+<!--jQuery-->
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
