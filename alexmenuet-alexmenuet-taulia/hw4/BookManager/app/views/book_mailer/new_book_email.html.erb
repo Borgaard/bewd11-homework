@@ -1,0 +1,13 @@
+
+<p>Hello <%=@user.email%>!</p><br>
+
+Your new recommendations are here <%=@new_book.title%> from <%=@new_book.author%>
+<img src="<%= @new_book.image_url %>" class="img-responsive" />
+<br>
+
+<%= link_to @new_book.title, book_url(@new_book), class: "btn btn-primary"%>
+<br>
+<p>Alex's Menuet Book Manager</p><br>
+
+<p>Guys, this is a test from my application. Let me know if you are receiving that email
+I will most likely spam you each time I creating a new book! :D:D:D:D</p>
