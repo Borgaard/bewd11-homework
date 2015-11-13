@@ -1,0 +1,10 @@
+<%= form_for :user do |f| %>
+	<h3>Name</h3>
+	<%= f.text_field :name %>
+	<h3>Email</h3>
+	<%= f.text_field :email_address %>
+	<h3>Password</h3>
+	<%= f.text_field :password %>
+	<br>
+	<%= f.submit %>
+<% end %>
