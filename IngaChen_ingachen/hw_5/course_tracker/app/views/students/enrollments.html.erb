@@ -1,0 +1,130 @@
+<div class="container">
+	<h1>Course Tracker</h1>
+</div>
+
+<div class="container margin-top-20">
+	<h3> Students </h3>
+	<% if flash[:error] %>
+		<div class="alert alert-danger">
+			<%= flash[:error] %>
+		</div>
+	<% end %>
+	
+	<table class="table table-hover">
+		<thead>
+			<th>Student ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Age</th>
+			<th>Enroll Student</th>
+		</thead>
+
+		<tbody>
+			<% @students.each do |student| %>
+			<tr>
+				<td>
+					<span class="bold"></span><%= student.id %></span>
+				</td>
+				<td>
+					<span class="bold"></span><%= student.name %></span>
+				</td>
+				<td>
+					<span class="bold"></span><%= student.email %></span> 
+				</td>
+				<td>
+					<span class="bold"></span><%= student.age %></span>
+				</td>
+				<td>
+					<span class="bold">Select course(s) to enroll in. Courses currently enrolled are highlighted.</span>
+					<%= form_for :student, url: enrollments_student_path(student.id) do |f| %>
+						<%= collection_select(
+							:student,
+							:course,
+							Course.all,
+							:id,
+							:name,
+							{ selected: student.courses.ids },
+							{ multiple: true }
+						) %>
+						<br>
+						<%= f.submit 'Save', class: 'btn btn-primary' %>
+					<% end %>
+				</td>
+				</div>
+				</div>
+				<% end %>
+		</tbody>
+	</table>
+</div>
+
+<!--Add Student Form-->
+<%= form_for :student, url: students_path, method: "POST" do |f| %>
+<!-- <div id="add-student-modal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header"> -->
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Add New Student</h4>
+			<!-- </div> -->
+			<div class="modal-body">
+				<div class="margin-top-20">
+					<%= f.label :name %><br>
+					<input type="text" class="form-control" <%= f.text_field :name %>
+				</div>
+				
+				<div class="bold margin-top-20">
+					<%= f.label :email %><br>
+					<input type="text" class="form-control" <%= f.text_field :email %>
+				</div>
+				
+				<div class="bold margin-top-20">
+					<%= f.label :age %><br>
+					<input type="text" class="form-control" <%= f.text_field :age %>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= f.submit 'Save', class: 'btn btn-primary' %>
+			</div>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+	<% end %>
+</div><!-- /.modal -->
+<!--/Add Student Form-->
+
+<!--Add Course Form-->
+<%= form_for :course, url: courses_path, method: "POST" do |f| %>
+<!-- <div id="add-student-modal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header"> -->
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Add New Course</h4>
+			<!-- </div> -->
+			<div class="modal-body">
+				<div class="margin-top-20">
+					<%= f.label :name %><br>
+					<input type="text" class="form-control" <%= f.text_field :name %>
+				</div>
+				
+				<div class="bold margin-top-20">
+					<%= f.label :length %><br>
+					<input type="text" class="form-control" <%= f.text_field :length %>
+				</div>
+				
+				<div class="bold margin-top-20">
+					<%= f.label :difficulty %><br>
+					<input type="text" class="form-control" <%= f.text_field :difficulty %>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= f.submit 'Save', class: 'btn btn-primary' %>
+			</div>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+	<% end %>
+</div><!-- /.modal -->
+<!--/Add Course Form-->

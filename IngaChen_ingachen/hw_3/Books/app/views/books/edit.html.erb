@@ -1,0 +1,45 @@
+<%= form_for(@book, url: edit_book_path(@book), method: "PATCH") do |f| %>
+<!-- url: edit_book_path(@book) -->
+<div class="container well margin-top-20 small-container">
+	<div>
+		<!-- <a href="/"><< Go Back</a> -->
+		<%= link_to 'Back', books_path %>
+	</div>
+	<div class="bold margin-top-20">
+		Title
+	</div>
+	<%= f.text_field :title %>
+	<!-- <div class="margin-top-20">
+		<input type="text" class="form-control" />
+	</div> -->
+	<div class="bold margin-top-20">
+		Author
+	</div>
+	<%= f.text_field :author %>
+	<!-- <div class="margin-top-20">
+		<input type="text" class="form-control" />
+	</div> -->
+	<div class="bold margin-top-20">
+		Release Date
+	</div>
+	<%= f.text_field :release_date %>
+	<!-- <div class="margin-top-20">
+		<input type="text" class="form-control" />
+	</div> -->
+	<div class="bold margin-top-20">
+		Image
+	</div>
+	<%= f.text_field :image %>
+	<!-- <div class="margin-top-20">
+		<input type="text" class="form-control" />
+	</div> -->
+	<div class="margin-top-20">
+		<a href="/" class="btn btn-default">Cancel</a>
+		<button type="submit" class="btn btn-primary">Edit Book</button>
+	</div>
+</div>
+<% end %>
+
+<%= form_tag(book_path(@book.id), method: "DELETE") do %>
+<button type="submit" class="btn btn-danger">Delete User</button>
+<% end %>
