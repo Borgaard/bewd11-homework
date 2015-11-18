@@ -59,7 +59,7 @@ Unless otherwise specified, homework is given each Thursday, and is always due t
 | 5    | Add validations to your Book Manager app. Create a Store model associated to your Book model. | [Validations & Associations](https://github.com/arun-instructor/BEWD11-Arun/blob/master/week_4%2Fday_2) | Tuesday, November 3rd | Thursday, November 5th |
 | 6    | Course Manager + in Book Manager app, create functionality to add clients and products via forms. | [Many to many associations](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_5/day_1) | Tuesday, November 10th | Tuesday, November 12th |
 | 7    | Devise + Assessment | [Get familiar with authentication using Devise + create your own Github repository for the Assessment](https://github.com/arun-instructor/BEWD11-Arun/blob/master/week_6%2Fday_1%2FREADME.md) | Tuesday, November 17th | Thursday, November 19th |
-| 8    |            | -           | -        | -        |
+| 8    | Host BlogLy or your own app in AWS, along with Paperclip gem | [Running your app in AWS](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_7/day_1) | Tuesday, November 24th | Thursday, November 26th |
 | 9    |            | -           | -        | -        |
 | 10   |            | -           | -        | -        |
 | ...  |            | -           | -        | -        |
