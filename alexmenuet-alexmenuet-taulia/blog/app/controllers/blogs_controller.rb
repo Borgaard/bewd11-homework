@@ -31,6 +31,17 @@ class BlogsController < ApplicationController
        redirect_to blogs_path
     end
     
+    def edit
+        @user = current_user
+        @post = Post.find(params[:id])
+        @user_post = @post.user
+        render "edit_post"
+    end
+     def update
+         post = Post.find(params[:id]).update_attributes(post_params)
+         !show
+     end
+    
     def show
         if params[:id]
             id = params[:id]
@@ -42,7 +53,7 @@ class BlogsController < ApplicationController
         @user_post = @post.user
         @new_comment = Comment.new
         @comments = @post.comments
-        render "post"
+        render "show_post"
     end
     
     def create_comment
@@ -63,7 +74,7 @@ class BlogsController < ApplicationController
     
 private
     def post_params
-        params.require(:post).permit(:title, :post_body, :image_url)
+        params.require(:post).permit(:title, :post_body, :image)
     end
     
     def comment_params

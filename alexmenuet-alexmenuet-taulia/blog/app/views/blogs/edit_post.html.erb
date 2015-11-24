@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= @user.first_name%> <%= @user.last_name%> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= @user.first_name%> <%= @user.last_name%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><%= link_to('New Post', new_blog_path, :method => :get) %></li>
                             <li role="separator" class="divider"></li>
@@ -31,67 +31,63 @@
 
     <!-- Page Content -->
     <div class="container">
-
-        <!-- Page Heading -->
+        <h1>Edit Post</h1>
         <div class="row">
-            <div class="col-md-8">
-                <h1 class="page-header">BEWD11's Blog
-                </h1>
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+
+                <!-- Blog Post -->
+
+                <!-- Title -->
+            <%= form_for @post, :url => blog_path(@post.id), :method => "PATCH", :html => { multipart: true } do |edit_post| %>
+                <h1><%= edit_post.text_field(:title, class: "form-control" , placeholder: "Your post Title") %></h1>
+
+                <hr>
+                <%= edit_post.text_area(:post_body, class: "form-control", placeholder: "Your post", rows: "10") %>
+                <div class="col-lg-10 no-margin">    
+                    <div class="input-group margin-top-10">
+                        <span class="input-group-btn">
+                            <span class="btn btn-default btn-file">
+                                Upload image&hellip; <%= edit_post.file_field(:image, class: "file-input", value: "Upload Image") %>
+                            </span>
+                        </span>
+                        <input type="text" class="form-control" readonly>
+                         
+                    </div>
+                </div> 
+
+                <div class="margin-top-10 pull-right">
+                    <button type="submit" class="btn btn-primary">Save Post <span class="glyphicon glyphicon-edit"></span></button>
+                </div>
+
             </div>
-        
-        <!-- Blog Sidebar Widgets Column -->
+            <%end%>
+            <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
+
                 <!-- Blog Search Well -->
                 <div class="well">
-                <%= form_for @search, :url => "/", :method => "GET", :action => "search" do |search| %>
                     <h4>Blog Search</h4>
                     <div class="input-group">
-                        <%= search.text_field(:search, class: "form-control", placeholder: "seacrh a post") %>
+                        <input type="text" class="form-control">
                         <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary">Search <span class="glyphicon glyphicon-search"></span></button>
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
                         </span>
                     </div>
-                <% end %>
                     <!-- /.input-group -->
                 </div>
-            </div>
-        </div>
-        <!-- /.row -->
 
-        <!-- Post One -->
-
-<% for pst in @posts %>
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <%= image_tag pst.image.url(:medium), class: "img-responsive img-blog" %>
-                </a>
-            </div>
-            <div class=" col-md-5post-container">
-                <div> 
-                    <h3><%= pst.title %>  <small>by <%=pst.user.first_name%> <%=pst.user.last_name%></small></h3>
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Post Tips</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
                 </div>
-                <div class="blog-extract">
-                    <p><%= simple_format(pst.post_body.truncate_words(80))%></p>
-                </div>
-                <div>
-                    <%= link_to(blog_path(pst.id), :method => :get, class: "btn btn-primary") do %>
-                        View Full Post <span class="glyphicon glyphicon-chevron-right"></span>
-                    <%end%>
-                </div>
-            </div>
-        </div>
-        <hr>
-<%end%>
-        <!-- /.row -->
 
-        <hr>
-
-        <!-- Pagination -->
-        <div class="text-center">
-            <div class="digg_pagination">
-                <%= will_paginate @posts, :container => true %>
             </div>
+
         </div>
         <!-- /.row -->
 
@@ -101,12 +97,11 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Alex Menuet - 2015</p>
+                    <p>Copyright &copy; Arun Sood 2015</p>
                 </div>
             </div>
             <!-- /.row -->
         </footer>
 
     </div>
-
     <!-- /.container -->
