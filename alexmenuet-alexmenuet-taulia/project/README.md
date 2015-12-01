@@ -25,7 +25,7 @@ For the PS team it will be important to know what configuration is available on 
 - Other links page (public + login)
 
 ### Tools
-- Search engine
+- Search engine (country)
 - PDF white paper generation from country cards (phase 2)
 - Authapp Google API
 - login for partners (phase 2)
