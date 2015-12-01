@@ -38,14 +38,14 @@ The maintenance of the webb app should only be done by compliance administrators
 
 ### Roles
 ```
-`admin:` Create user and generate new content
+**admin:** Create user and generate new content
 ```
 ```
-`taulia:` View and Search for internal taulia users (PS, SC) login via google API
+**taulia:** View and Search for internal taulia users (PS, SC) login via google API
 ```
 ```
-`partners:` View only external content and some Taulia specific content
+**partners:** View only external content and some Taulia specific content
 ```
 ```
-`external:` Only see extarnal content (no login required)
+**external:** Only see extarnal content (no login required)
 ```
