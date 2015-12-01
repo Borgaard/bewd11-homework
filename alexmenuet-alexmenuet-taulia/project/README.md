@@ -37,15 +37,9 @@ The maintenance of the webb app should only be done by compliance administrators
 - Upload of master excel to update the countries info (phase 2)
 
 ### Roles
-```
-**admin:** Create user and generate new content
-```
-```
-**taulia:** View and Search for internal taulia users (PS, SC) login via google API
-```
-```
-**partners:** View only external content and some Taulia specific content
-```
-```
-**external:** Only see extarnal content (no login required)
-```
+| Role | Description |
+| admin | Create user and generate new content |
+| taulia | View and Search for internal taulia users (PS, SC) login via google API |
+| partners | View only external content and some Taulia specific content |
+| external | Only see extarnal content (no login required) |
+
