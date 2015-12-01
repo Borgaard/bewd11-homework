@@ -3,8 +3,10 @@
 ## Introduction
 ### Summary
 The Taulia e-invoicing compliance webapp will be used by Taulia's Professional Services (PS) and Solution Consulting (SC) teams. Partners will be invited in phase 2.
+
 The webapp should present an overview of what e-ivoining compliance is in general and what it mean in Taulia.
 It should allow PS abd SC to request more information of a specific country (Country Flash Card) and if Taulia is compliant with the country requested.
+
 For the PS team it will be important to know what configuration is available on the Taulia platform and for a specific country.
 
 ### Pages
