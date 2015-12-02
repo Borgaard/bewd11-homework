@@ -1,0 +1,24 @@
+Final Project Proposal
+I would like to make a personal Yelp for dishes, called, tentatively, Best Dishes. I’m a big foodie and use Yelp all the time, but going to a four-star-on-yelp restaurant can be a hit or miss depending on what dishes I get.
+
+Jobs to be done:
+- Best Dishes is a way for me to find the best pancakes in San Francisco (for example) to eat now or bookmark for later.
+- Best Dishes is a way for me to give my opinion on what the best french toast in San Francisco is.
+
+Technologies used:
+Active record
+     I will use Active Record and the SQLite database to store dish categories and individual dish entries (and their associated ratings, location, etc)
+Web requests
+     When a user adds a new dish, the app will make a POST request to the server to add a new dish entry
+     When a user wants to see all the french toast dishes in San Francisco, the app will make a GET request to show all french toast dishes
+Forms
+    There will be forms to add categories of dishes (eggs benedict) and individual dish entries (buckwheat pancakes at Aperto) with ratings
+Validations
+     The forms will have validation for fields such as ratings (must be an integer between 1-10 inclusive)
+Associations
+     A category has_many individual dish listings
+     A dish listing belongs_to a cateogry
+JSON APIs
+     When a user adds a new dish, there will be one field in the form for Restaurant, which will be a list from either the Yelp or Foursquare API
+
+NOTE: I will likely have to scope this down once I start on the project, given time constraints of our class - it looks like we have 2 weeks left. I do want to build this out as I have it in my mind though, so will continue doing that even after the class ends.
