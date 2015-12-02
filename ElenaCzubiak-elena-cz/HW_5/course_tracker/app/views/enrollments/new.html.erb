@@ -1,6 +1,0 @@
-
-<%= form_tag do %>
-<%= collection_select(:student, :course, Course.all, :id, :name, { selected: Student.find(params[:id]).courses.ids }, {multiple: true}) %>
-
-<%= submit_tag %>
-<% end %>
