@@ -61,5 +61,4 @@ Unless otherwise specified, homework is given each Thursday, and is always due t
 | 7    | Devise + Assessment | [Get familiar with authentication using Devise + create your own Github repository for the Assessment](https://github.com/arun-instructor/BEWD11-Arun/blob/master/week_6%2Fday_1%2FREADME.md) | Tuesday, November 17th | Thursday, November 19th |
 | 8    | Host BlogLy or your own app in AWS, along with Paperclip gem | [Running your app in AWS](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_7/day_1) | Tuesday, November 24th | Thursday, November 26th |
 | 9    | AngularJS Email Single Page Application | [Building your own API with Rails](https://github.com/arun-instructor/BEWD11-Arun/tree/master/week_9/day_2) | Tuesday, December 8th | Thursday, December 10th |
-| 10   |            | -           | -        | -        |
-| ...  |            | -           | -        | -        |
+| 10   | Final projects! :D | -        | -        | -        |
