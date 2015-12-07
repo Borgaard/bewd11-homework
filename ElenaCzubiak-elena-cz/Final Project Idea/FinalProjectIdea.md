@@ -12,7 +12,7 @@ Users get 5-day weather forecast with shopable outfit suggestions
 # Features & Technologies
 
 ### Sign in, save secure passwords, etc
-*Use Devise to provide standard authentication
+* Use Devise to provide standard authentication
 
 ### Search for cities and save to account
 * Search for cities and match to city ID, possibly using JSON database from OpenWeatherMAP API. Info here: http://openweathermap.org/forecast5
