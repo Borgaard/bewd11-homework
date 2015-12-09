@@ -1,0 +1,90 @@
+
+
+<div class="container">
+	<h1>Students</h1>
+
+	<div>
+		<a href="#" class="btn btn-primary" data-target="#add-student-modal" data-toggle="modal">Add Student</a>
+	</div>
+</div>
+
+<div class="container margin-top-20">
+<% if flash[:error] %>
+    <div class="alert alert-danger">
+    <%= flash[:error] %>
+    </div>
+<% end %>
+	<table class="table striped">
+		<thead>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Age</th>
+			<th></th>
+		</thead>
+
+		<tbody>
+			<% @students.each do |student|  %>
+			<tr>
+				<td>
+					<%= student.name %>
+				</td>
+				<td>
+					<%= student.email %>
+				</td>
+				<td>
+					<%= student.age %>
+				</td>
+
+				<td>
+					<a href="<%= enrollments_student_path(student.id) %>" class="btn btn-primary">Enrollment</a>
+				</td>
+
+				
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<%= form_for @student do |f| %>
+<div id="add-student-modal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">Add a User</h4>
+			</div>
+			<div class="modal-body">
+				<div class="bold">
+					Name
+				</div>
+				<div class="margin-top-20">
+				    <%= f.text_field :name %>
+				</div>
+				<div class="bold margin-top-20">
+					Email
+				</div>
+				<div class="margin-top-20">
+					<%= f.text_field :email %>
+				</div>
+				<div class="bold margin-top-20">
+					Age
+				</div>
+				<div class="margin-top-20">
+					<%= f.text_field :age %>
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary">Save Student</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<% end %>
+
+<div class="container margin-top-20">
+<a href="<%= courses_path %>">See all availabe courses</a>
+</div>
