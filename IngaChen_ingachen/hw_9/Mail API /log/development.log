@@ -1,0 +1,1683 @@
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20151208063543)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208063543"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20151208064200)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "firstname" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "lastname" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "username" varchar
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151208064200"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:52:19 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (undefined method `protect_from_forgery' for ApplicationController:Class):
+  app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/registrations_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.1ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (82.2ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:52:49 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/registrations_controller.rb:7:in `sign_up_params'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.2ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:53:12 -0800
+Processing by RegistrationsController#create as */*
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/registrations_controller.rb:7:in `sign_up_params'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.0ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:53:40 -0800
+Processing by RegistrationsController#create as */*
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/registrations_controller.rb:7:in `sign_up_params'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.7ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:55:40 -0800
+Processing by RegistrationsController#create as */*
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/registrations_controller.rb:9:in `sign_up_params'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.1ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:55:53 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/registrations_controller.rb:9:in `sign_up_params'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.8ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:56:23 -0800
+Processing by RegistrationsController#create as */*
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/registrations_controller.rb:11:in `sign_up_params'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.0ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:57:32 -0800
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 1.0ms)
+
+NameError (undefined local variable or method `auth_token' for #<User:0x007f852b2c7560>):
+  app/models/user.rb:11:in `set_auth_token'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.9ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 22:57:48 -0800
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.7ms)
+
+NameError (undefined local variable or method `auth_token' for #<User:0x007f852b36dca8>):
+  app/models/user.rb:11:in `set_auth_token'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.1ms)
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20151208063543)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "auth_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208063543"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20151208064200)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "firstname" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "lastname" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "username" varchar
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151208064200"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:01:00 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "achiu8@gmail.com"], ["encrypted_password", "$2a$10$uAyJIF/UNjmgRx33/fB0b.JdY6KqIef6qNPRPoUflMNgH4VU2RLeO"], ["username", "achiu8"], ["created_at", "2015-12-08 07:01:00.908698"], ["updated_at", "2015-12-08 07:01:00.908698"], ["auth_token", "be89fd027a7749dbbb00f909f88bc60a"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 2.5ms)
+
+NoMethodError (undefined method `flash' for #<ActionDispatch::Request:0x007ffe31c10cc8>):
+  actionpack (4.2.3) lib/action_controller/metal/flash.rb:9:in `flash'
+  devise (3.5.2) app/controllers/devise_controller.rb:153:in `set_flash_message'
+  devise (3.5.2) app/controllers/devise/registrations_controller.rb:21:in `create'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.9ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:04:32 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 90ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.2ms)[0m  commit transaction
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:04:47 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "achiu8@gmail.com"], ["encrypted_password", "$2a$10$.zIySwFsh4XdhK8ehbJ/3uXxMv5Sr9g93wZ3MfnLCoI8EOEvVv2J2"], ["username", "achiu8"], ["created_at", "2015-12-08 07:04:47.589381"], ["updated_at", "2015-12-08 07:04:47.589381"], ["auth_token", "82a3dcbd6fba4177a36ffc4c3e0ff8e6"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-12-08 07:04:47.592982"], ["current_sign_in_at", "2015-12-08 07:04:47.592982"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 07:04:47.594003"], ["id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 88ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:06:27 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:07:44 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 76ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:08:01 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"andy", "email"=>"andy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'andy@gmail.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "andy@gmail.com"], ["encrypted_password", "$2a$10$0EKMvhRl/3c41Nx6zsYBBO7BUpag52IxLUDzgoSKEak/YK82zL2XK"], ["username", "andy"], ["created_at", "2015-12-08 07:08:01.414722"], ["updated_at", "2015-12-08 07:08:01.414722"], ["auth_token", "e41f798d01f44bcbbdb43224a1b62bd8"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-12-08 07:08:01.417435"], ["current_sign_in_at", "2015-12-08 07:08:01.417435"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 07:08:01.417927"], ["id", 3]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 77ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:08:46 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:12:05 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:12:08 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:12:18 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:12:49 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "auth_token"=>"82a3dcbd6fba4177a36ffc4c3e0ff8e6"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:13:25 -0800
+Processing by SessionsController#create as JSON
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:13:53 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:15:04 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:23:53 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:24:45 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:24:59 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:26:55 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:27:06 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `flash' for #<ActionDispatch::Request:0x007fb762e553f0>):
+  devise (3.5.2) lib/devise/failure_app.rb:18:in `flash'
+  devise (3.5.2) lib/devise/failure_app.rb:52:in `recall'
+  devise (3.5.2) lib/devise/failure_app.rb:37:in `respond'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  devise (3.5.2) lib/devise/failure_app.rb:22:in `call'
+  devise (3.5.2) lib/devise/failure_app.rb:22:in `call'
+  devise (3.5.2) lib/devise/delegator.rb:5:in `call'
+  warden (1.2.3) lib/warden/manager.rb:130:in `call_failure_app'
+  warden (1.2.3) lib/warden/manager.rb:116:in `process_unauthenticated'
+  warden (1.2.3) lib/warden/manager.rb:47:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.4ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:31:45 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 102ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:31:51 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "achiu8@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-12-08 07:31:51.869930"], ["sign_in_count", 2], ["updated_at", "2015-12-08 07:31:51.871404"], ["id", 2]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 1.5ms)
+
+NoMethodError (undefined method `flash' for #<ActionDispatch::Request:0x007fb761e228c0>):
+  actionpack (4.2.3) lib/action_controller/metal/flash.rb:9:in `flash'
+  devise (3.5.2) app/controllers/devise_controller.rb:153:in `set_flash_message'
+  devise (3.5.2) app/controllers/devise/sessions_controller.rb:18:in `create'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.8ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-12-07 23:33:51 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "achiu8@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-12-08 07:31:51.869930"], ["current_sign_in_at", "2015-12-08 07:33:51.281150"], ["sign_in_count", 3], ["updated_at", "2015-12-08 07:33:51.282077"], ["id", 2]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 109ms (Views: 0.4ms | ActiveRecord: 2.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20151208073538)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "customer_id" integer, "subject" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_messages_on_customer_id" ON "messages" ("customer_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151208073538"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_customer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_customer_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Quisquam sapiente aut ipsam totam voluptatibus est et molestias."], ["body", "Qui molestias consectetur sint aut quod fugit tempore. Optio quia architecto a harum. Ratione non quia ut."], ["created_at", "2015-12-08 07:39:10.706137"], ["updated_at", "2015-12-08 07:39:10.706137"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("subject", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["subject", "Eligendi dolorem rem quia."], ["body", "Molestiae distinctio quia ducimus et unde sed velit. Dolores aut corporis asperiores. Rerum nihil nulla autem molestias."], ["created_at", "2015-12-08 07:39:10.710126"], ["updated_at", "2015-12-08 07:39:10.710126"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Recusandae a consequatur fugit illum eum vitae saepe."], ["body", "Qui consequatur nisi. Quisquam rerum commodi laboriosam. Non qui possimus. Neque quisquam ut alias porro in beatae vel."], ["created_at", "2015-12-08 07:39:10.711893"], ["updated_at", "2015-12-08 07:39:10.711893"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "messages" ("subject", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["subject", "Architecto reprehenderit sit tenetur."], ["body", "Possimus distinctio quia quis doloremque. Alias nihil eum et debitis. Fugiat atque modi voluptatem."], ["created_at", "2015-12-08 07:39:10.713565"], ["updated_at", "2015-12-08 07:39:10.713565"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Est doloribus ea nemo qui."], ["body", "Tenetur magnam a. Possimus dolorem fugiat nostrum ipsa vel excepturi asperiores. Alias ad dolores sapiente ipsa distinctio magni quae."], ["created_at", "2015-12-08 07:39:10.715506"], ["updated_at", "2015-12-08 07:39:10.715506"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20151208063543)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "auth_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208063543"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20151208064200)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "firstname" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "lastname" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "username" varchar
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151208064200"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateMessages (20151208073538)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "subject" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_messages_on_user_id" ON "messages" ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208073538"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Odit voluptas quos aspernatur optio."], ["body", "Distinctio eligendi est dolor mollitia. Molestiae totam inventore facilis aut qui illo. Dolores tenetur eum. Et fuga molestiae suscipit quasi nobis. Praesentium eaque culpa porro."], ["user_id", 2], ["created_at", "2015-12-08 07:40:37.532136"], ["updated_at", "2015-12-08 07:40:37.532136"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("subject", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["subject", "Et ullam consequuntur quae qui consequatur."], ["body", "Quibusdam velit accusantium soluta magni non magnam sapiente. Quod occaecati deserunt. Officia deleniti at illo quisquam ab sint."], ["user_id", 2], ["created_at", "2015-12-08 07:40:37.537625"], ["updated_at", "2015-12-08 07:40:37.537625"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Qui voluptatem neque enim."], ["body", "Odio inventore doloribus laudantium dolores officiis. Sunt sed ipsum aut rerum. Nihil voluptas vel sit repellendus perferendis quia deserunt. Nihil sequi id aspernatur rerum. Dolorum molestias omnis aperiam nemo."], ["user_id", 2], ["created_at", "2015-12-08 07:40:37.540204"], ["updated_at", "2015-12-08 07:40:37.540204"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("subject", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["subject", "Eum aut nesciunt assumenda et."], ["body", "Quibusdam non voluptatem aliquid. Provident molestias eum quia fuga fugit. Et occaecati optio magni harum non dolorem."], ["user_id", 2], ["created_at", "2015-12-08 07:40:37.542427"], ["updated_at", "2015-12-08 07:40:37.542427"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Corrupti est maxime earum."], ["body", "Odit quas sint veniam rem pariatur aperiam cupiditate. Voluptas quam ut ut. Beatae velit inventore esse. Ea eos quibusdam perferendis assumenda ut. Quia ea sit."], ["user_id", 2], ["created_at", "2015-12-08 07:40:37.544446"], ["updated_at", "2015-12-08 07:40:37.544446"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:41:10 -0800
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"andy", "email"=>"andy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'andy@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "andy@gmail.com"], ["encrypted_password", "$2a$10$cjq5aCzjL.z1UXbgfkeZvuUIed.5RK6irJ5DVsDvwG.D5t/9OTXbi"], ["username", "andy"], ["created_at", "2015-12-08 07:41:10.289159"], ["updated_at", "2015-12-08 07:41:10.289159"], ["auth_token", "24b12f2d63394ff4821c5baa86107487"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-12-08 07:41:10.291844"], ["current_sign_in_at", "2015-12-08 07:41:10.291844"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 07:41:10.292279"], ["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 92ms (Views: 0.9ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:41:13 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "achiu8@gmail.com"], ["encrypted_password", "$2a$10$SO7PGNw3kH1IhZP3INygNudeMaIZQmhm8Clp20hxFY6KLHOHGJVsK"], ["username", "achiu8"], ["created_at", "2015-12-08 07:41:13.931801"], ["updated_at", "2015-12-08 07:41:13.931801"], ["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-12-08 07:41:13.934811"], ["current_sign_in_at", "2015-12-08 07:41:13.934811"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 07:41:13.935327"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Completed 201 Created in 74ms (Views: 0.4ms | ActiveRecord: 2.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+
+
+Started POST "/messages" for ::1 at 2015-12-07 23:44:29 -0800
+
+ActionController::RoutingError (No route matches [POST] "/messages"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.5ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.4ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:44:50 -0800
+Processing by MessagesController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:47:50 -0800
+Processing by MessagesController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:48:00 -0800
+Processing by MessagesController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:48:12 -0800
+Processing by MessagesController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:48:32 -0800
+Processing by MessagesController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/messages_controller.rb:3:in `index'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.7ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:49:22 -0800
+Processing by MessagesController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:49:50 -0800
+Processing by MessagesController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:50:59 -0800
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 32ms (Views: 17.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:51:15 -0800
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:51:24 -0800
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:51:31 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20151208063543)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "auth_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208063543"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20151208064200)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "firstname" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "lastname" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "username" varchar
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151208064200"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateMessages (20151208073538)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "subject" varchar, "body" text, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_messages_on_user_id" ON "messages" ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208073538"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["subject", "Ipsa dolores sed mollitia cum quis earum consequatur."], ["body", "Ut id modi asperiores sed facilis. Nulla quis culpa recusandae sit omnis doloribus quibusdam. Exercitationem ab ratione. Molestias aut est."], ["status", "sent"], ["user_id", 1], ["created_at", "2015-12-08 07:53:03.010101"], ["updated_at", "2015-12-08 07:53:03.010101"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["subject", "Atque vero aut reprehenderit non labore optio."], ["body", "Magni doloribus vel. Repellat omnis eius nulla. Aut quia omnis autem odit aut est. Et voluptas quia dolores omnis quasi."], ["status", "sent"], ["user_id", 1], ["created_at", "2015-12-08 07:53:03.013886"], ["updated_at", "2015-12-08 07:53:03.013886"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["subject", "Consequatur velit officiis deleniti nesciunt sint qui iste."], ["body", "Qui dolor sapiente delectus occaecati rerum impedit. Veniam voluptate at. Veniam suscipit harum et nam reiciendis."], ["status", "received"], ["user_id", 1], ["created_at", "2015-12-08 07:53:03.015668"], ["updated_at", "2015-12-08 07:53:03.015668"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["subject", "Voluptate provident perferendis officia et."], ["body", "Et quia qui omnis possimus et et nisi. Nihil eos nulla magnam maxime. Ut dolorem molestias. Ut molestiae quia dolorem qui qui molestias aut."], ["status", "received"], ["user_id", 1], ["created_at", "2015-12-08 07:53:03.017482"], ["updated_at", "2015-12-08 07:53:03.017482"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["subject", "Magni eaque eum qui repellendus ut."], ["body", "Fugiat omnis quia laudantium tempora beatae ea. Quam eum vitae. Et aperiam ut sit cumque adipisci. Doloremque et et voluptatem dolorem."], ["status", "received"], ["user_id", 1], ["created_at", "2015-12-08 07:53:03.019422"], ["updated_at", "2015-12-08 07:53:03.019422"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:54:22 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:54:39 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"andy", "email"=>"andy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'andy@gmail.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "andy@gmail.com"], ["encrypted_password", "$2a$10$r3o3sDNx/cmKefsLmoZeEOGDeqs0KEL/WzBnnvWAi2kerQkxrixKS"], ["username", "andy"], ["created_at", "2015-12-08 07:54:39.372763"], ["updated_at", "2015-12-08 07:54:39.372763"], ["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-12-08 07:54:39.375484"], ["current_sign_in_at", "2015-12-08 07:54:39.375484"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 07:54:39.376096"], ["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 107ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:54:42 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "0b1a2f9dd1354817b3c3e027854b84c8"]]
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for ::1 at 2015-12-07 23:54:54 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"andy", "email"=>"andy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'andy@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 349ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:55:36 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/messages/1" for ::1 at 2015-12-07 23:55:43 -0800
+Processing by MessagesController#destroy as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:56:03 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Message with 'id'=1):
+  app/controllers/messages_controller.rb:9:in `show'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.5ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:58:04 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 12ms (ActiveRecord: 1.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Message with 'id'=1):
+  app/controllers/messages_controller.rb:10:in `show'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.4ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:58:13 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 18ms (ActiveRecord: 0.9ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Message with 'id'=1):
+  app/controllers/messages_controller.rb:10:in `show'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.1ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-07 23:59:38 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 13ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-07 23:59:47 -0800
+Processing by MessagesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:00:00 -0800
+Processing by MessagesController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 14ms (Views: 3.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-08 00:00:03 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/1" for ::1 at 2015-12-08 00:03:32 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 11ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/messages/2" for ::1 at 2015-12-08 00:03:39 -0800
+Processing by MessagesController#destroy as */*
+  Parameters: {"id"=>"2"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/messages/2" for ::1 at 2015-12-08 00:03:45 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 2]]
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/messages/3" for ::1 at 2015-12-08 00:03:47 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/3" for ::1 at 2015-12-08 00:09:16 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 16ms (Views: 1.4ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/messages/3" for ::1 at 2015-12-08 00:09:25 -0800
+Processing by MessagesController#destroy as */*
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "messages" WHERE "messages"."id" = ?  [["id", 3]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/messages/3" for ::1 at 2015-12-08 00:09:32 -0800
+Processing by MessagesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/messages/3" for ::1 at 2015-12-08 00:09:37 -0800
+Processing by MessagesController#destroy as */*
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.0ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/messages" for ::1 at 2015-12-08 00:09:41 -0800
+
+ActionController::RoutingError (No route matches [DELETE] "/messages"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.8ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (61.9ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:09:46 -0800
+Processing by MessagesController#index as */*
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "44c10a9d41054fdba7b4a2f2bfb736bb"]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20151208063543)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "auth_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208063543"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20151208064200)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "firstname" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "lastname" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "username" varchar
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151208064200"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateMessages (20151208073538)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "subject" varchar, "body" text, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_messages_on_user_id" ON "messages" ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151208073538"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["subject", "Sequi cumque voluptas modi quia."], ["body", "Ex a in maxime nihil recusandae. Quidem eaque qui vero id et. Iste in minima veniam dolor."], ["status", "received"], ["user_id", 1], ["created_at", "2015-12-08 08:12:56.145025"], ["updated_at", "2015-12-08 08:12:56.145025"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["subject", "Earum error voluptas laborum atque."], ["body", "Temporibus sint ut id. Ut vero reprehenderit molestias ab voluptas. Quisquam unde ducimus quo autem. Aut sapiente est magni. Doloremque voluptatem soluta ea vel autem dolorem."], ["status", "sent"], ["user_id", 1], ["created_at", "2015-12-08 08:12:56.149303"], ["updated_at", "2015-12-08 08:12:56.149303"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["subject", "Accusantium vitae quia exercitationem tenetur voluptatem nihil incidunt labore."], ["body", "Suscipit nemo sunt assumenda nisi iusto ea quam. Est recusandae voluptatem ad quia doloribus sequi culpa. Est excepturi voluptate delectus sint. Ut iste et ipsum et quia illo."], ["status", "received"], ["user_id", 1], ["created_at", "2015-12-08 08:12:56.151175"], ["updated_at", "2015-12-08 08:12:56.151175"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["subject", "Dolorem labore adipisci voluptate magnam harum quia."], ["body", "Ut porro soluta aspernatur repudiandae. Et voluptatem aut. Ut aut occaecati dolores quo magnam. Ab fugit repellendus delectus voluptates enim. Quae magni exercitationem saepe officiis."], ["status", "sent"], ["user_id", 1], ["created_at", "2015-12-08 08:12:56.152966"], ["updated_at", "2015-12-08 08:12:56.152966"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("subject", "body", "status", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["subject", "Quia natus est et omnis ullam."], ["body", "Quasi quidem dicta ut aliquid. Accusantium molestias consequatur in. Ut sit ab debitis enim incidunt est nesciunt."], ["status", "received"], ["user_id", 1], ["created_at", "2015-12-08 08:12:56.154718"], ["updated_at", "2015-12-08 08:12:56.154718"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+
+
+Started POST "/users" for ::1 at 2015-12-08 00:13:08 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Andy", "lastname"=>"Chiu", "username"=>"achiu8", "email"=>"achiu8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'achiu8@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["firstname", "Andy"], ["lastname", "Chiu"], ["email", "achiu8@gmail.com"], ["encrypted_password", "$2a$10$yMtdQYSkDG.Pmt6CMUywu.UjT.O1ygbEdrPBc5cThyxcf1yRhWA7G"], ["username", "achiu8"], ["created_at", "2015-12-08 08:13:08.600650"], ["updated_at", "2015-12-08 08:13:08.600650"], ["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-12-08 08:13:08.604654"], ["current_sign_in_at", "2015-12-08 08:13:08.604654"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 08:13:08.605794"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Completed 201 Created in 115ms (Views: 0.5ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/messages/sent" for ::1 at 2015-12-08 00:13:14 -0800
+
+ActionController::RoutingError (No route matches [POST] "/messages/sent"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (58.4ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:13:31 -0800
+Processing by MessagesController#sent as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:13:53 -0800
+Processing by MessagesController#sent as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:13:59 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE (user_id = 1 and status = 'sent')
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:14:08 -0800
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:14:20 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE (user_id = 1 and status = 'sent')
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:15:13 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 24ms (Views: 4.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:15:14 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:15:16 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:15:25 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 16ms (Views: 4.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:15:37 -0800
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:15:39 -0800
+Processing by MessagesController#sent as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:16:01 -0800
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:25:38 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "null"]]
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users.json" for ::1 at 2015-12-08 00:26:00 -0800
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"firstname"=>"Inga", "lastname"=>"Chen", "username"=>"ingachen", "email"=>"inga@automatic.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'inga@automatic.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("firstname", "lastname", "email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["firstname", "Inga"], ["lastname", "Chen"], ["email", "inga@automatic.com"], ["encrypted_password", "$2a$10$57OXj2chnMW9pcixdG1JVe5HxSzIQFhXtWuW1Ax0yjZA9KNwkvoXy"], ["username", "ingachen"], ["created_at", "2015-12-08 08:26:00.559521"], ["updated_at", "2015-12-08 08:26:00.559521"], ["auth_token", "b4c7cdca39a8474d867eacdfb7d1957e"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-12-08 08:26:00.562200"], ["current_sign_in_at", "2015-12-08 08:26:00.562200"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-12-08 08:26:00.562660"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Completed 201 Created in 75ms (Views: 0.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:00 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "b4c7cdca39a8474d867eacdfb7d1957e"]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:26:02 -0800
+Processing by MessagesController#sent as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "b4c7cdca39a8474d867eacdfb7d1957e"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 2], ["status", "sent"]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:03 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "b4c7cdca39a8474d867eacdfb7d1957e"]]
+  [1m[35mMessage Load (0.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:03 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "b4c7cdca39a8474d867eacdfb7d1957e"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/sign_in.json" for ::1 at 2015-12-08 00:26:13 -0800
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"achiu8@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "achiu8@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2015-12-08 08:26:13.812282"], ["sign_in_count", 2], ["updated_at", "2015-12-08 08:26:13.813002"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Completed 201 Created in 75ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:13 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:26:14 -0800
+Processing by MessagesController#sent as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/messages/4" for ::1 at 2015-12-08 00:26:16 -0800
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 4]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started OPTIONS "/messages/4" for ::1 at 2015-12-08 00:26:18 -0800
+
+ActionController::RoutingError (No route matches [OPTIONS] "/messages/4"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.3ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andyc/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (57.2ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:23 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:26:24 -0800
+Processing by MessagesController#sent as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:25 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/messages/sent" for ::1 at 2015-12-08 00:26:26 -0800
+Processing by MessagesController#sent as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? AND "messages"."status" = ?  [["user_id", 1], ["status", "sent"]]
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/messages" for ::1 at 2015-12-08 00:26:27 -0800
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "c5fdd26a053a4bb78dfe5ab0dc09d3fe"]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
