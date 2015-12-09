@@ -1,0 +1,29 @@
+
+
+<div class="container">
+
+	<div class="margin-top-20">
+	<% if flash[:error] %>
+	    <div class="alert alert-danger">
+	        <%= flash[:error] %> 
+	   </div>    
+	   <% end %>
+		<a href="<%= new_book_store_path %>" class="btn btn-primary">Add Store</a>
+	</div>
+	<!--One Store-->
+	<% @stores.each do |store| %>
+	
+	<div class="row margin-top-20 wine-container">
+		
+		<div class="col-sm-9">
+			<div class="margin-top-20">
+				<span class="bold"><%= store.name %></span>
+			</div>
+			<div class="margin-top-20">
+				<a href="<%= store.website %>"><%= store.website %></a>
+			</div>
+		</div>
+	</div>
+	<% end %>
+	<!--/One Store-->
+</div>
