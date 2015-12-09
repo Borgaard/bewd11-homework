@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-
-    <title>New Post</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-
-    <link href="css/style.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Blog.Ly</a>
+                <a class="navbar-brand" href="/">Blog.Ly</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -49,7 +31,7 @@
 
     <!-- Page Content -->
     <div class="container">
-
+        <h1>New Post</h1>
         <div class="row">
 
             <!-- Blog Post Content Column -->
@@ -63,15 +45,20 @@
 
                 <hr>
                 <%= new_post.text_area(:post_body, class: "form-control", placeholder: "Your post", rows: "10") %>
-
-                <div class="margin-top-20">
-                    <%= new_post.text_field(:image_url, class: "form-control" , placeholder: "Blog Image") %>
-                </div>
-
-                <div class="margin-top-20">
+                <div class="col-lg-10 no-margin">    
+                    <div class="input-group margin-top-10">
+                        <span class="input-group-btn">
+                            <span class="btn btn-default btn-file">
+                                Upload image&hellip; <%= new_post.file_field(:image, class: "file-input", value: "Upload Image") %>
+                            </span>
+                        </span>
+                        <input type="text" class="form-control" readonly>
+                         
+                    </div>
+                </div>     
+                <div class="margin-top-10 pull-right">
                     <button type="submit" class="btn btn-primary">Submit Post</button>
                 </div>
-
             </div>
             <%end%>
             <!-- Blog Sidebar Widgets Column -->
@@ -116,13 +103,3 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
